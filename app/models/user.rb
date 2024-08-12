@@ -1,0 +1,10 @@
+class User < ApplicationRecord
+  has_many :renting_requests
+  has_many :products
+  has_many :reviews
+
+  validates :name, presence: true
+  validates :address, presence: true
+  validates :password, presence: true
+  validates :email_address, presence: true
+end
