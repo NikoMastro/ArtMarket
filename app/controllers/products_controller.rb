@@ -21,9 +21,13 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+    @product = Product.find(params[:id])
+  end
+
   def update
-    @product = Product.find(product_params)
-    if @product.save
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
       redirect_to product_path(@product)
     else
       render :edit, status: :unprocessable_entity
@@ -39,7 +43,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:list).permit(:title, :description, :price, :category)
+    params.require(:product).permit(:title, :description, :price, :category)
   end
 
 end
