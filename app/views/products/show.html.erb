@@ -1,7 +1,54 @@
-<h1>Product Show</h1>
-<h2><%= @product.title %></h2>
+<div class="container row product-container">
+  <h1><%= @product.title %></h1>
+  <div class="product-img border-bottom border-dark-subtle py-3">
+    <div class="row">
+      <div class="col-6">
+        <%= image_tag 'default_product_img.jpg', alt: "default image for product" %>
+      </div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-6 mb-3">
+            <%= image_tag 'default_product_img.jpg', alt: "default image for product" %>
+          </div>
+          <div class="col-6 mb-3">
+            <%= image_tag 'default_product_img.jpg', alt: "default image for product" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <%= image_tag 'default_product_img.jpg', alt: "default image for product" %>
+          </div>
+          <div class="col-6">
+            <%= image_tag 'default_product_img.jpg', alt: "default image for product" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-description border-bottom border-dark-subtle py-3">
+    <h2>Description</h2>
+    <p><%= @product.description %></p>
+  </div>
+  <div class="product-cerification border-bottom border-dark-subtle py-3">
+    <h2>Certification</h2>
+  </div>
+  <div class="renting-form border-bottom border-dark-subtle py-3">
+  </div>
+  <div class="review-form border-bottom border-dark-subtle py-3">
+    <h2>Review</h2>
+  </div>
+  <div class="reviews border-bottom border-dark-subtle py-3">
+  </div>
+</div>
+
 <p><%= @product.category %></p>
 <p><%= @product.price %></p>
-<p><%= @product.description %></p>
 <p><%= link_to "Change product details", edit_product_path(@product), class: "btn btn-primary" %>
 <%= link_to "See all products", products_path %>
+
+
+<%# <% if list.photo.attached? %>
+  <%# <%= cl_image_tag list.photo.key, width: 250, height: 250, crop: :fill %>
+<%# <% else %>
+  <%# <%= image_tag 'default_product_img.jpg', alt: "default image for product" %>
+<%# <% end %>
