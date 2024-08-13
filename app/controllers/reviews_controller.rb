@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-
   def index
     @review = Review.all
   end
@@ -11,7 +10,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @product = Product.find(params[:product_id])
-    @review.user_id = 1
+    @review.user = current_user
     @review.product = @product
     if @review.save
       redirect_to product_path(@product)
