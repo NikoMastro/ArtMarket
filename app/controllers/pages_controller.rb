@@ -3,7 +3,6 @@ class PagesController < ApplicationController
   def home
   end
 
-  # def account
-  # end
-  # if account needed
+  def account
+  end
 end
