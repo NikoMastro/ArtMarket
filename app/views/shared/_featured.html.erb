@@ -1,0 +1,16 @@
+<div class="content">
+  <h2>Latest Product:</h2>
+  <% if @last_product %>
+    <div class="card mb-3 mt-3">
+      <%= image_tag @last_product.image_url, style: "width: 100%; max-width: 500px;", alt: @last_product.title %>
+      <div class="card-body">
+        <h2 class="card-title"><%= @last_product.title %></h2>
+        <h3>¥<%= @last_product.price %></h3>
+        <p>Description: <%= @last_product.description %></p>
+        <%= link_to "Show this product", product_path(@last_product), class: "btn btn-outline-info", role: "button" %>
+      </div>
+    </div>
+  <% else %>
+    <p>No products available.</p>
+  <% end %>
+</div>

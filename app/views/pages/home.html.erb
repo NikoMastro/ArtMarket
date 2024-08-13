@@ -1,6 +1,6 @@
+<!--User should be able to see random or last item added by another user-->
 <html>
   <body>
-    <%= render "/shared/header"%>
     <div class="content" style="font-family:Playfair Display">
       <div class="banner">
         <div class="banner-block">
@@ -10,13 +10,13 @@
             Whether it’s a gala, a wedding, a corporate event, or a special occasion,
             our marketplace offers an exclusive collection of luxurious goods available for rent, allowing you to make a statement without the commitment.
           </p>
-          <%= link_to "View products", products_path %>
+          <%= link_to "View products", products_path, class: "btn btn-outline-light text-white text-decoration-none" %>
         </div>
       </div>
       <!--row-->
       <div class="concept" >
         <div class="container">
-          <div class="row">
+          <div class="row mt-3 mb-2">
             <!-- First Column -->
             <div class="col-md-5 mt-4">
               <h2>News & Updates:</h2>
@@ -34,8 +34,7 @@
             <!-- Second Column -->
             <div class="col-md-5 mt-4">
               <div class="content">
-                <h2>Featured Products:</h2>
-                <!--insert card-->
+                <%= render "shared/featured" %>
               </div>
             </div>
           </div>
@@ -44,16 +43,19 @@
       <!--row-->
       <div class="concept">
         <div class="container">
-          <div class="row">
+          <div class="row mt-3">
             <!-- First Column -->
             <div class="col-md-5 mt-4">
-              <div class="content">
-                <h2>Curated Collection of Extravagance</h2>
-                <p>
-                  Our carefully curated selection features the epitome of elegance and sophistication.<br>
-                  From exquisite watches that keep more than just time, to tailored suits that define your style, our offerings are designed for those who demand the best.
-                  Step into luxury with our stunning range of high-end cars, or add a touch of glamour with our handpicked jewels, each piece telling a story of timeless beauty.
-                </p>
+              <div class="content d-flex align-items-start">
+                <%= image_tag 'ex_img', style: "width: 150px; height: 500px; object-fit: cover;", alt: "ex", class: "me-3" %>
+                <div>
+                  <h2>Curated Collection of Extravagance</h2>
+                  <p>
+                    Our carefully curated selection features the epitome of elegance and sophistication.<br>
+                    From exquisite watches that keep more than just time, to tailored suits that define your style, our offerings are designed for those who demand the best.<br>
+                    Step into luxury with our stunning range of high-end cars, or add a touch of glamour with our handpicked jewels, each piece telling a story of timeless beauty.
+                  </p>
+                </div>
               </div>
             </div>
             <div class="col-md-2 mt-4">
@@ -67,11 +69,11 @@
                   Renting allows you to enjoy a diverse range of premium products without the constraints of ownership.<br>
                   LuxuryGood provides you with the flexibility to select the perfect items for each event, ensuring that you always have access to the latest and most coveted pieces.
                 </p>
+                <%= image_tag url="", style: "width: 150px height:150px", alt:""%>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <%= render "/shared/footer"%>
     </body>
   </html>
