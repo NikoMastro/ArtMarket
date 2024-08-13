@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def home
-    @review = 
+    # @review =
   end
 end
