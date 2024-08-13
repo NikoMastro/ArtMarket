@@ -36,8 +36,12 @@
   </div>
   <div class="review-form border-bottom border-dark-subtle py-3">
     <h2>Review</h2>
+    <%= render 'review/form', review: @review %>
   </div>
   <div class="reviews border-bottom border-dark-subtle py-3">
+    <% @product.reviews.each do |review| %>
+         <%= render 'review/review', review: review %>
+       <% end %>
   </div>
 </div>
 
