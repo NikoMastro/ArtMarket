@@ -9,14 +9,22 @@ User.destroy_all
 
 CATEGORIES = ["car", "watch", "jewelry", "others"]
 
+puts "generating Admin mail model: admin@gmail.com , pw: 123123"
+user = User.new(
+  name: "admin",
+  address: "yes",
+  password: "123123",
+  email: "admin@gmail.com"
+)
+user.save
+
 puts "generating 15 User models..."
 15.times do
-  username = Faker::Name.name
   user = User.new(
-    name: username,
+    name: Faker::Name.name,
     address: Faker::Address.city,
     password: "123123",
-    email_address: "#{username}@gmail.com"
+    email: Faker::Internet.email
   )
   user.save
 end
@@ -26,7 +34,7 @@ puts "generating 10 Product models..."
   product = Product.new(
     title: Faker::Movie.title,
     description: Faker::Lorem.paragraph,
-    price: rand(100000..100000000),
+    price: rand(100000..10000000),
     category: CATEGORIES.sample
   )
   users = User.all
