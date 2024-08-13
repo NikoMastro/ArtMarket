@@ -44,6 +44,7 @@
 
 <p><%= @product.category %></p>
 <p><%= @product.price %></p>
+<p><%= link_to "Change product details", edit_product_path(@product), class: "btn btn-primary" %>
 <%= link_to "See all products", products_path %>
 
 

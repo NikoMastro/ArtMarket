@@ -1,4 +1,3 @@
-
 require 'securerandom'
 require 'faker'
 
