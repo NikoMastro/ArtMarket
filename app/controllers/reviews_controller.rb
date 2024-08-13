@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
-  #add a review
-
+  
   def index
     @review = Review.all
   end
