@@ -11,12 +11,11 @@ CATEGORIES = ["car", "watch", "jewelry", "others"]
 
 puts "generating 15 User models..."
 15.times do
-  username = Faker::Name.name
   user = User.new(
-    name: username,
+    name: Faker::Name.name,
     address: Faker::Address.city,
     password: "123123",
-    email_address: "#{username}@gmail.com"
+    email: Faker::Internet.email
   )
   user.save
 end
