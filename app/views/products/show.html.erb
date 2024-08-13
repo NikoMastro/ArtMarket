@@ -1,4 +1,8 @@
-<div class="container row product-container">
+<!--The user should be able to reserve a date, see the total amount and click to valid the reservation-->
+<!--The user should be able to see the reviews, but not to post if not alredy reserved-->
+<!--The user should be able to like the product to add it to favorites-->
+<!--Add a category array on product model-->
+<div class="container row product-container mt-4">
   <h1><%= @product.title %></h1>
   <div class="product-img border-bottom border-dark-subtle py-3">
     <div class="row">
@@ -26,7 +30,9 @@
     </div>
   </div>
   <div class="product-description border-bottom border-dark-subtle py-3">
-    <h2>Description</h2>
+    <h2>Description:</h2>
+    <p>Category: <%= @product.category %></p>
+    <p>Price: ¥<%= @product.price %></p>
     <p><%= @product.description %></p>
   </div>
   <div class="product-cerification border-bottom border-dark-subtle py-3">
@@ -40,19 +46,14 @@
   </div>
   <div class="reviews border-bottom border-dark-subtle py-3">
     <% @product.reviews.each do |review| %>
-         <%= render 'review/review', review: review %>
-       <% end %>
+      <%= render 'review/review', review: review %>
+    <% end %>
   </div>
 </div>
-
-<p><%= @product.category %></p>
-<p><%= @product.price %></p>
-<p><%= link_to "Change product details", edit_product_path(@product), class: "btn btn-primary" %>
-<%= link_to "See all products", products_path %>
-
-
+<%# <p><%= link_to "Change product details", edit_product_path(@product), class: "btn btn-primary" %>
+<%# <%= link_to "See all products", products_path %>
 <%# <% if list.photo.attached? %>
-  <%# <%= cl_image_tag list.photo.key, width: 250, height: 250, crop: :fill %>
+<%# <%= cl_image_tag list.photo.key, width: 250, height: 250, crop: :fill %>
 <%# <% else %>
-  <%# <%= image_tag 'default_product_img.jpg', alt: "default image for product" %>
+<%# <%= image_tag 'default_product_img.jpg', alt: "default image for product" %>
 <%# <% end %>
