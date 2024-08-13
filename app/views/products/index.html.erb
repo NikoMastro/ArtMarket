@@ -1,0 +1,9 @@
+<h1>Products</h1>
+<% @products.each do |product| %>
+  <h2><%= product.title %></h2>
+  <h3>$<%= product.price %></h3>
+  <p>Category: <%= product.category %></p>
+  <p>Description: <%= product.description %></p>
+<% end %>
+<p><%= link_to "Add new product", new_product_path(@product) %></p>
+<p><%= link_to "Go to home page", :root %></p>
