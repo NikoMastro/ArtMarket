@@ -1,19 +1,21 @@
 class ReviewsController < ApplicationController
-  
   def index
     @review = Review.all
   end
-  
-  def new
-    @review = Review.new
-  end
+
+  # def new
+  #   @review = Review.new
+  # end
 
   def create
     @review = Review.new(review_params)
+    @product = Product.find(params[:product_id])
+    @review.user = current_user
+    @review.product = @product
     if @review.save
-      redirect_to #/products/product_id/review/#
+      redirect_to product_path(@product)
     else
-      render 'new', status: :unprocessable_entity
+      render 'products/show', status: :unprocessable_entity
     end
   end
 
