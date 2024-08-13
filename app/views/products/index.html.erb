@@ -7,6 +7,11 @@
     <h3>$<%= product.price %></h3>
     <p>Category: <%= product.category %></p>
     <p>Description: <%= product.description %></p>
+    <p><%= link_to "Show this product", product_path(product) %>
+    <div><%= link_to "Delete",
+            product_path(product),
+            data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this product?" }
+            %></div>
   <% end %>
 <% end %>
 <p><%= link_to "Add new product", new_product_path(@product) %></p>
