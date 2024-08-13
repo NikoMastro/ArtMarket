@@ -1,2 +1,77 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<html>
+  <body>
+    <%= render "/shared/header"%>
+    <div class="content" style="font-family:Playfair Display">
+      <div class="banner">
+        <div class="banner-block">
+          <h1>Welcome to LuxuryGood</h1>
+          <p>
+            At LuxuryGood, we believe that the finer things in life should be within your reach, whenever you need them.
+            Whether it’s a gala, a wedding, a corporate event, or a special occasion,
+            our marketplace offers an exclusive collection of luxurious goods available for rent, allowing you to make a statement without the commitment.
+          </p>
+          <%=link_to "See all products" %>
+        </div>
+      </div>
+      <!--row-->
+      <div class="concept" >
+        <div class="container">
+          <div class="row">
+            <!-- First Column -->
+            <div class="col-md-5 mt-4">
+              <h2>News & Updates:</h2>
+              <div class="content-border">
+                <p>
+                  Summer Holiday Closing Notice
+                  Please be informed that LuxuryGood Co. Ltd. will be closed from Aug 11th to Aug 18th for Summer Holidays.
+                  Responses to the inquiries received during the period will be processed after 19th Aug and thereafter.
+                  We are sorry for any inconvenience caused.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-2 mt-4">
+            </div>
+            <!-- Second Column -->
+            <div class="col-md-5 mt-4">
+              <div class="content">
+                <h2>Featured Products:</h2>
+                <!--insert card-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--row-->
+      <div class="concept">
+        <div class="container">
+          <div class="row">
+            <!-- First Column -->
+            <div class="col-md-5 mt-4">
+              <div class="content">
+                <h2>Curated Collection of Extravagance</h2>
+                <p>
+                  Our carefully curated selection features the epitome of elegance and sophistication.<br>
+                  From exquisite watches that keep more than just time, to tailored suits that define your style, our offerings are designed for those who demand the best.
+                  Step into luxury with our stunning range of high-end cars, or add a touch of glamour with our handpicked jewels, each piece telling a story of timeless beauty.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-2 mt-4">
+            </div>
+            <!-- Second Column -->
+            <div class="col-md-5 mt-4">
+              <div class="content">
+                <h2>Why Rent?</h2>
+                <p>
+                  Luxury is about experiencing the extraordinary.<br>
+                  Renting allows you to enjoy a diverse range of premium products without the constraints of ownership.<br>
+                  LuxuryGood provides you with the flexibility to select the perfect items for each event, ensuring that you always have access to the latest and most coveted pieces.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%= render "/shared/footer"%>
+    </body>
+  </html>

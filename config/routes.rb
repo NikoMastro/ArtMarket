@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
   resources :products, only: [:index, :new, :create] do
-    resources :reviews, only: :create
+    resources :reviews, only: [:create, :show]
     resources :renting_requests, only: :create
   end
 
