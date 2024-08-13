@@ -1,3 +1,23 @@
+<div class="container">
+  <div class="product-cards row">
+    <% if @products.empty? %>
+      <p>You have no products</p>
+    <% else %>
+      <% @products.each do |product| %>
+        <div class="col-4">
+          <div class="card mb-3 mt-3 product-card" style="width: 18rem;">
+            <%= image_tag 'default_product_img.jpg', alt: "default image for product" %>
+            <div class="card-body">
+              <h5 class="card-title"><%= product.title %></h5>
+              <%= link_to "", product_path(product) %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
 <h1>Products</h1>
 <% if @products.empty? %>
   <p>You have no products</p>
