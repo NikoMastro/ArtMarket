@@ -41,7 +41,7 @@
       </ul>
       <ul class="navbar-nav ms-auto">
         <% if user_signed_in? %>
-          <%= link_to "renting_requests", class: "d-flex align-items-center position-relative text-color-black text-decoration-none m-2" do %>
+          <%= link_to "/renting_requests", class: "d-flex align-items-center position-relative text-color-black text-decoration-none m-2" do %>
             <i class="fa-regular fa-bookmark"></i>
           <% end %>
           <%= link_to "/products/new", class: "d-flex align-items-center position-relative text-color-black text-decoration-none m-2" do %>
