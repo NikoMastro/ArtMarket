@@ -5,13 +5,11 @@ export default class extends Controller {
 
   connect() {
     console.log('Hello from reviews_controller.js')
-    console.log(this.formTarget)
+    // console.log(this.testTarget)
   }
 
   toggle(event) {
     event.preventDefault()
-    console.log(this.formTarget);
-
     this.formTarget.classList.toggle("d-none")
   }
 }
