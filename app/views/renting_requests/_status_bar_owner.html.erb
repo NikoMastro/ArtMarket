@@ -1,0 +1,21 @@
+<% if renting_request.status == "pending" %>
+  <p><%= renting_request.status %></p>
+  <div class="d-flex">
+    <%= simple_form_for renting_request do |f| %>
+      <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+      <%= f.submit 'Accept', class: 'btn btn-info' %>
+    <% end %>
+
+    <%= simple_form_for renting_request do |f| %>
+      <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+      <%= f.submit 'Reject', class: 'btn btn-light' %>
+    <% end %>
+  </div>
+<% else %>
+  <!-- Display Status-->
+  <% if renting_request.status == "rejected" %>
+    <p class="rejected status"> REJECTED </p>
+  <% elsif renting_request.status == "accepted" %>
+    <p class="accepted status"> ACCEPTED </p>
+  <% end %>
+<% end %>
