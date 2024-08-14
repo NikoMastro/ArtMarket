@@ -1,8 +1,8 @@
 class CreateRentingRequests < ActiveRecord::Migration[7.1]
   def change
     create_table :renting_requests do |t|
-      t.string :start_date
-      t.string :end_date
+      t.date :start_date
+      t.date :end_date
       t.string :status
       t.float :total_price
       t.references :user, null: false, foreign_key: true

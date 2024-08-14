@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @review = Review.new
+    @renting_request = RentingRequest.new
   end
 
   def new
