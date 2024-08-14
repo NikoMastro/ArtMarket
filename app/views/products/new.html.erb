@@ -2,19 +2,11 @@
 <!--the category should be a dropdown or scroll that return the categories available-->
 <h1>Add Product</h1>
 <%= simple_form_for(@product) do |f| %>
-<<<<<<< HEAD
     <%= f.input :title %>
-    <%= f.input :category %>
+    <%= f.input :category, as: :select, collection: @category %>
     <%= f.input :price %>
-    <%= f.input :description, as: :select, collection: @category %>
+    <%= f.input :description, as: :text %>
     <div class="form-actions">
-=======
-  <%= f.input :title %>
-  <%= f.input :category %>
-  <%= f.input :price %>
-  <%= f.input :description, as: :text %>
-  <div class="form-actions">
->>>>>>> master
-    <%= f.button :submit %>
+    <%= f.button :submit, class:"btn btn-info my-3" %>
   </div>
 <% end %>
