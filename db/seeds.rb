@@ -9,14 +9,14 @@ User.destroy_all
 
 CATEGORIES = ["car", "watch", "jewelry", "others"]
 
-puts "generating Admin mail model: admin@gmail.com , pw: 123123"
-user = User.new(
-  name: "admin",
-  address: "yes",
-  password: "123123",
-  email: "admin@gmail.com"
-)
-user.save
+# puts "generating Admin mail model: admin@gmail.com , pw: 123123"
+# user = User.new(
+#   name: "admin",
+#   address: "yes",
+#   password: "123123",
+#   email: "admin@gmail.com"
+# )
+# user.save
 
 puts "generating 15 User models..."
 15.times do
