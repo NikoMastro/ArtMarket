@@ -40,20 +40,23 @@
   </div>
   <div class="renting-form border-bottom border-dark-subtle py-3">
   </div>
-  <div class="review-form border-bottom border-dark-subtle py-3">
-    <h2>Review</h2>
-    <%= render 'review/form', review: @review %>
-  </div>
-  <div class="reviews border-bottom border-dark-subtle py-3">
-    <% @product.reviews.each do |review| %>
-      <%= render 'review/review', review: review %>
-    <% end %>
-  </div>
-</div>
-<%# <p><%= link_to "Change product details", edit_product_path(@product), class: "btn btn-primary" %>
-<%# <%= link_to "See all products", products_path %>
-<%# <% if list.photo.attached? %>
-<%# <%= cl_image_tag list.photo.key, width: 250, height: 250, crop: :fill %>
-<%# <% else %>
-<%# <%= image_tag 'default_product_img.jpg', alt: "default image for product" %>
-<%# <% end %>
+  <div data-controller="reviews">
+    <div class="review-form border-bottom border-dark-subtle py-3">
+      <h2>Review</h2>
+      <button data-action="click->reviews#toggle" class="btn btn-info my-4 mx-2">Add Review</button>
+      <div class="d-none" data-reviews-target="form">
+        <%= render 'review/form', review: @review %>
+      </div>
+    </div>
+    <div class="reviews border-bottom border-dark-subtle py-3">
+      <% @product.reviews.each do |review| %>
+        <%= render 'review/review', review: review %>
+      <% end %>
+    </div>
+    <%# <p><%= link_to "Change product details", edit_product_path(@product), class: "btn btn-primary" %>
+    <%# <%= link_to "See all products", products_path %>
+    <%# <% if list.photo.attached? %>
+    <%# <%= cl_image_tag list.photo.key, width: 250, height: 250, crop: :fill %>
+    <%# <% else %>
+    <%# <%= image_tag 'default_product_img.jpg', alt: "default image for product" %>
+    <%# <% end %>
