@@ -30,7 +30,8 @@
     </div>
   </div>
   <div class="product-description border-bottom border-dark-subtle py-3">
-    <h2>Description</h2>
+    <p><%= @product.title %></p>
+    <p><%= @product.price %></p>
     <p><%= @product.description %></p>
   </div>
   <div class="product-cerification border-bottom border-dark-subtle py-3">
@@ -54,9 +55,9 @@
           <%= render 'review/review', review: review %>
         <% end %>
     </div>
+    <%= render 'requests/form' %>
   </div>
 </div>
-
 
 <%# <p><%= link_to "Change product details", edit_product_path(@product), class: "btn btn-primary" %>
 <%# <% if list.photo.attached? %>
