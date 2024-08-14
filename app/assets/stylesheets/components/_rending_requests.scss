@@ -5,3 +5,22 @@
 .product-thumbnail {
   height: 150px;
 }
+
+.pending {
+  background-color: blue;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+.rejected {
+  background-color: red;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+.accepted {
+  background-color: green;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
