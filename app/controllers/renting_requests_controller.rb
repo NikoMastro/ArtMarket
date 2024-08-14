@@ -1,5 +1,5 @@
 class RentingRequestsController < ApplicationController
-  before_action :set_renting_request, only: [:show, :edit, :update, :destroy, :accept, :reject]
+  before_action :set_renting_request, only: [:accept, :reject]
   before_action :authenticate_user!
   # I didnt make a new because displayed inside product page
   # SHOULD BE INSIDE THE NAVBAR
@@ -14,18 +14,25 @@ class RentingRequestsController < ApplicationController
   # #create a request as a seller
   def create
     @renting_request = RentingRequest.new(renting_request_params)
-    @renting_request.owner = current_user
-    @product = Product.find(params[:product_id])
 
-    respond_to do |format|
-      if @renting_request.save
-        format.html { redirect_to product_path(@product) }
-        format.json { render json: @renting_request, status: :created }
-      else
-        format.html { render "renting_requests/new", status: :unprocessable_entity }
-        format.json { render json: @renting_request.errors, status: :unprocessable_entity }
-      end
+    @renting_request.user = current_user
+    @renting_request.product_id = params[:product_id]
+    @renting_request.status = "pending"
+    if @renting_request.save
+      redirect_to renting_requests_path
+    else
+      render 'products/show', status: :unprocessable_entity
     end
+
+    # respond_to do |format|
+    #   if @renting_request.save
+    #     format.html { redirect_to product_path(@product) }
+    #     format.json { render json: @renting_request, status: :created }
+    #   else
+    #     format.html { render "renting_requests/new", status: :unprocessable_entity }
+    #     format.json { render json: @renting_request.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
 
@@ -49,6 +56,6 @@ class RentingRequestsController < ApplicationController
   end
 
   def renting_request_params
-    params.require(:renting_request).permit(:property_id, :client_id, :start_date, :end_date, :message)
+    params.require(:renting_request).permit(:start_date, :end_date, :status, :total_price, :user_id)
   end
 end
