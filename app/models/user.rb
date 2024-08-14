@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :renting_requests
   has_many :products
+  has_many :renting_requests_as_owner, through: :products, source: :renting_requests
   has_many :reviews
 
   # validates :name, presence: true

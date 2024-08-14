@@ -6,9 +6,9 @@ Rails.application.routes.draw do
     resources :renting_requests, only: :create
   end
 
-  resources :renting_requests, only: :index
+  resources :renting_requests, only: [:index, :update]
 
-  namespace :owner do
-    resources :renting_requests, only: [:index, :update]
-  end
+  # namespace :owner do
+  #   resources :renting_requests, only: [:index, :update]
+  # end
 end
