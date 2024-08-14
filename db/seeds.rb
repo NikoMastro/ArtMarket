@@ -93,6 +93,14 @@ Product.create!(
   category: "jewelry",
   user_id: User.all.sample.id
 )
+
+Product.create!(
+  title: "Nadia Diamond Engagement Ring",
+  description: "This elegant ring features a dazzling cluster of round and marquise-shaped diamonds that rest upon the shoulders of the gently tapered band. The center gem is held by four claw prongs as it sits upon a slightly open gallery (1/10 total carat weight).",
+  price: rand(100000..10000000),
+  category: "jewelry",
+  user_id: User.all.sample.id
+)
 # puts "generating 10 Product models..."
 # 10.times do
 #   product = Product.new(
