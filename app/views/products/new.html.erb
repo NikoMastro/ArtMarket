@@ -1,12 +1,12 @@
-<!--Do Css / bootstrap-->
-<!--the category should be a dropdown or scroll that return the categories available-->
-<h1>Add Product</h1>
-<%= simple_form_for(@product) do |f| %>
+<div class="container">
+  <h1>Add Product</h1>
+  <%= simple_form_for(@product) do |f| %>
     <%= f.input :title %>
     <%= f.input :category, as: :select, collection: @category %>
     <%= f.input :price %>
     <%= f.input :description, as: :text %>
     <div class="form-actions">
-    <%= f.button :submit, class:"btn btn-info my-3" %>
-  </div>
-<% end %>
+      <%= f.button :submit, class:"btn btn-info my-3" %>
+    </div>
+  <% end %>
+</div>

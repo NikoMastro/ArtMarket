@@ -1,0 +1,57 @@
+<div class="container product-container">
+  <h1>All Requests You made</h1>
+  <% @renting_requests.each do |renting_request| %>
+    <% product = renting_request.product %>
+    <div class="card mb-3">
+      <div class="card-body row">
+        <h4><%= product.title %></h4>
+        <div class="col-3 product-thumbnail">
+          <%= image_tag 'default_product_img.jpg', alt: "default image for product", class: "product-thumbnail-img" %>
+        </div>
+        <div class="col-9">
+          <%= render partial: 'renting_requests/status_bar', locals: { status: renting_request.status } %>
+          <div class="row">
+            <div class="col-6">
+              <p><%= product.description %></p>
+            </div>
+            <div class="col-6">
+              <p>start date: <%= renting_request.start_date %></p>
+              <p>end date: <%= renting_request.end_date %></p>
+              <p>Total price: ¥ <%= renting_request.total_price.to_i %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <h1>All Requests on Your Items</h1>
+  <% @renting_requests_owner.each do |requests_on_product| %>
+
+  <% requests_on_product.each do |renting_request| %>
+    <% product = renting_request.product %>
+    <div class="card mb-3">
+      <div class="card-body row">
+        <h4><%= product.title %></h4>
+        <div class="col-3 product-thumbnail">
+          <%= image_tag 'default_product_img.jpg', alt: "default image for product", class: "product-thumbnail-img" %>
+        </div>
+        <div class="col-9">
+          <%= render partial: 'renting_requests/status_bar_owner', locals: { renting_request: renting_request } %>
+          <div class="row">
+            <div class="col-6">
+              <p><%= product.description %></p>
+            </div>
+            <div class="col-6">
+              <p>start date: <%= renting_request.start_date %></p>
+              <p>end date: <%= renting_request.end_date %></p>
+              <p>Total price: ¥ <%= renting_request.total_price.to_i %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% end %>
+
+</div>
