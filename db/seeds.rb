@@ -119,7 +119,7 @@ puts "generating 10 Renting_request models..."
 STATUS = ["pending", "rejected", "accepted"]
 renting_duration = rand(10)
 10.times do
-  start_date = Faker::Date.between(from: '2024-08-01', to: '2024-08-30')
+  start_date = Date.today
   renting_request = RentingRequest.new(
     start_date: "#{start_date}",
     end_date: "#{start_date + renting_duration}",

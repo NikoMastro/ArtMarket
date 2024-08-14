@@ -55,6 +55,7 @@
           <%= render 'review/review', review: review %>
         <% end %>
     </div>
+    <%= render partial: 'requests/form', locals: {product: @product, renting_request: @renting_request} %>
   </div>
 </div>
 
