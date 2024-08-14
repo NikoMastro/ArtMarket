@@ -28,19 +28,44 @@ puts "generating 15 User models..."
   )
   user.save
 end
+puts "generating yacht"
+Product.create!(
+  title: "Luxury Yacht",
+  description: "6-cabin Benetti",
+  price: rand(100000..10000000),
+  category: "others",
+  user_id: User.all.sample.id
+)
+puts "generating watch"
+Product.create!(
+  title: "Rolex Sky Dweller 4013LW",
+  description: "Luxury Rolex watch",
+  price: rand(100000..10000000),
+  category: "watch",
+  user_id: User.all.sample.id
+)
 
-puts "generating 10 Product models..."
-10.times do
-  product = Product.new(
-    title: Faker::Movie.title,
-    description: Faker::Lorem.paragraph,
-    price: rand(100000..10000000),
-    category: CATEGORIES.sample
-  )
-  users = User.all
-  product.user_id = users.sample.id
-  product.save
-end
+Product.create!(
+  title: "BMW i7",
+  description: "Hi-tech car with cashmere interior",
+  price: rand(100000..10000000),
+  category: "car",
+  user_id: User.all.sample.id
+)
+
+
+# puts "generating 10 Product models..."
+# 10.times do
+#   product = Product.new(
+#     title: Faker::Movie.title,
+#     description: Faker::Lorem.paragraph,
+#     price: rand(100000..10000000),
+#     category: CATEGORIES.sample
+#   )
+#   users = User.all
+#   product.user_id = users.sample.id
+#   product.save
+# end
 
 
 puts "generating 10 Renting_request models..."
