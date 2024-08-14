@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @category = ['watch', 'jewelry', 'others']
   end
 
   def create

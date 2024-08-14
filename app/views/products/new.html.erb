@@ -3,7 +3,7 @@
     <%= f.input :title %>
     <%= f.input :category %>
     <%= f.input :price %>
-    <%= f.input :description, as: :text %>
+    <%= f.input :description, as: :select, collection: @category %>
     <div class="form-actions">
     <%= f.button :submit %>
   </div>
