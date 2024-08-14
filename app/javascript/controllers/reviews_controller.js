@@ -10,6 +10,6 @@ export default class extends Controller {
 
   toggle(event) {
     event.preventDefault()
-    this.formTarget.classList("d-none")
+    this.formTarget.classList.toggle("d-none")
   }
 }

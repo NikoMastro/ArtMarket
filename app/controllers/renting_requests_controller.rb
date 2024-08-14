@@ -28,14 +28,20 @@ class RentingRequestsController < ApplicationController
   #create a request as a seller
   def create
     @renting_request = RentingRequest.new(renting_request_params)
-    @renting_request.owner = current_user # assuming the current user is the owner
+    @renting_request.owner = current_user
+    @product = Product.find(params[:product_id])
 
-    if @renting_request.save
-      redirect_to @renting_request, notice: 'Renting request was successfully created.'
-    else
-      render :new, status: :unprocessable_entity
+    respond_to do |format|
+      if @renting_request.save
+        format.html { redirect_to product_path(@product) }
+        format.json { render json: @renting_request, status: :created }
+      else
+        format.html { render "renting_requests/new", status: :unprocessable_entity }
+        format.json { render json: @renting_request.errors, status: :unprocessable_entity }
+      end
     end
   end
+
 
   #accept/reject a request as a seller
   # PATCH/PUT /renting_requests/:id/accept

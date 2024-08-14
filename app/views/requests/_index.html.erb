@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="name product">
+    <%= f.input :title, value: @product.title %>
+  </div>
+  <div class="row">
+    <div class="col" data-controller="insert-in-list">
+      <div id="monuments" data-insert-in-list-target="items">
+        <%= f.input :opening_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
+      </div>
+      <%= f.input :closing_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
+    </div>
+    <div class="icon">
+      <a href="#"><i class="fa-solid fa-bookmark"></i></a>
+    </div>
+  </div>
+</div>
