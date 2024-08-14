@@ -30,7 +30,7 @@ class RentingRequestsController < ApplicationController
     redirect_to #_path, notice: 'Renting request was successfully accepted.'
   end
 
-  # PATCH/PUT /renting_requests/:id/reject
+  # PATCH/PUT /renting_requests/:id/reject poo
   def reject
     @renting_request.update(status: 'rejected')
     redirect_to #_path, notice: 'Renting request was successfully rejected.'
