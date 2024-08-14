@@ -2,17 +2,17 @@
 <!--add distance between button on right-->
 <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" style="font-family:Playfair Display, serif;font-size: 18px">
   <div class="container-fluid">
-    <%= link_to "/", class: "navbar-brand" do %>
-      <%= image_tag "" %>
+    <%= link_to "/", class: "navbar-brand logo-container" do %>
+      <%= image_tag "logo_home_03", class: "logo" %>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav me-auto">
-        <li class="nav-item">
+        <%# <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
-        </li>
+        </li> %>
         <!--search bar start TODO:JS interaction-->
         <li class="nav-profil position-relative">
           <a class="nav-link" href="#" role="button" id="searchToggle" aria-expanded="false">
@@ -29,7 +29,7 @@
         <!--category bar start-->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Products
+            Categories
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Jewelries</a></li>
@@ -44,7 +44,7 @@
           <a class="d-flex align-items-center position-relative text-color-black text-decoration-none m-2"><i class="fa-regular fa-bookmark"></i></a>
           <%= link_to "/products/new", class: "d-flex align-items-center position-relative text-color-black text-decoration-none m-2" do %>
             <i class="fa-regular fa-plus"></i>
-            <span class="plus-tooltip">Add product</span>
+            <span class="plus-tooltip">Add Article</span>
           <% end %>
           <!--avatar dropdown-->
           <li class="nav-item dropdown">
