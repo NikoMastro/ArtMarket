@@ -14,12 +14,20 @@
   <% end %>
   <div class="card">
     <div class="card-body row">
-      <h4>Title</h4>
+      <h4><%= product.title %></h4>
       <div class="col-3 product-thumbnail">
         <%= image_tag 'default_product_img.jpg', alt: "default image for product", class: "product-thumbnail-img" %>
       </div>
       <div class="col-9">
-        <p>adkoewp </p>
+        <p><%= renting_request.status %></p>
+        <div class="row">
+          <div class="col-6">
+            <p><%= product.description %></p>
+          </div>
+          <div class="col-6">
+            <p>adkoewp </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
