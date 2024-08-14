@@ -10,11 +10,12 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @category = ['Jewelries', 'Watches & Bracelets', 'Suits & Dress', 'Sports & Vintage']
   end
 
   def create
     @product = Product.new(product_params)
-    # @product.user = current_user
+    @product.user = current_user
     if @product.save
       redirect_to product_path(@product)
     else
