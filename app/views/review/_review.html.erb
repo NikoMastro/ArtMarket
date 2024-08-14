@@ -1,6 +1,8 @@
 <div class="card m-3">
   <div class="card-body">
-    <%= review.content %>
-    <%= review.rating %>
+    <p><% review.rating.times do %>
+      <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+    <% end %></p>
+    <p><%= review.content %></p>
   </div>
 </div>
