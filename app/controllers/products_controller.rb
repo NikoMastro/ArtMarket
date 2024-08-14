@@ -23,6 +23,10 @@ class ProductsController < ApplicationController
     end
   end
 
+  def featured
+    @last_product = Product.last
+  end
+
   def edit
     @product = Product.find(params[:id])
   end

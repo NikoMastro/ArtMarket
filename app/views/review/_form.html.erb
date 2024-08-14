@@ -1,5 +1,11 @@
 <%= simple_form_for [@product, review] do |f| %>
+<<<<<<< HEAD
   <%= f.input :content %> 
   <%= f.input :rating, collection: (1..5) %> 
   <%= f.submit 'Submit', class:"btn btn-info my-3" %> 
+=======
+  <%= f.input :content %>
+  <%= f.input :rating, collection: (1..5) %>
+  <%= f.submit 'Submit', class:"btn btn-info my-3" %>
+>>>>>>> master
 <% end %>

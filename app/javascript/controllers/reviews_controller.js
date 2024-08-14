@@ -13,17 +13,3 @@ export default class extends Controller {
     this.formTarget.classList.toggle("d-none")
   }
 }
-
-
-
-// create(event) {
-//   event.preventDefault();
-
-//   fetch(this.formTarget.action, {
-//     method: 'Post',
-//     headers: {Accept: ""}
-//     body: new FormData(this.formTarget)
-//   });
-//   .then((response) => response.text)
-//   .then((data) => {})
-// };

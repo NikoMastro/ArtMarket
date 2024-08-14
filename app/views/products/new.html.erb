@@ -1,11 +1,20 @@
-<h1>Add New Product</h1>
+<!--Do Css / bootstrap-->
+<!--the category should be a dropdown or scroll that return the categories available-->
+<h1>Add Product</h1>
 <%= simple_form_for(@product) do |f| %>
+<<<<<<< HEAD
     <%= f.input :title %>
     <%= f.input :category %>
     <%= f.input :price %>
     <%= f.input :description, as: :select, collection: @category %>
     <div class="form-actions">
+=======
+  <%= f.input :title %>
+  <%= f.input :category %>
+  <%= f.input :price %>
+  <%= f.input :description, as: :text %>
+  <div class="form-actions">
+>>>>>>> master
     <%= f.button :submit %>
   </div>
-  <% end %>
-<%= link_to "Go back", products_path %>
+<% end %>
