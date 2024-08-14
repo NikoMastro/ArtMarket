@@ -1,7 +1,20 @@
 .navbar {
   background-color: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
-  height:51px;
+  height:70px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+/* Style the logo image */
+.logo {
+  width: 70px; /* Adjust the width as needed */
+  height: 70px; /* Keep it equal to the width for a square logo */
+  object-fit: cover; /* Ensure the image scales correctly */
 }
 
 
@@ -13,7 +26,7 @@
   left: 50%;
   transform: translateX(-50%);
   background-color: #fff; /* Background color for the tooltip */
-  border: 1px solid #ccc; /* Border color */
+  border: 1px solid #ffffff; /* Border color */
   padding: 5px 10px;
   border-radius: 4px; /* Rounded corners */
   white-space: nowrap;
