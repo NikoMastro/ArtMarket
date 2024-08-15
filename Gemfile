@@ -50,6 +50,8 @@ gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem "devise"
+gem 'faker'
+gem "pg_search"
 
 group :development, :test do
   gem "dotenv-rails"
@@ -75,6 +77,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+<<<<<<< HEAD
 
 # for seed
 gem 'faker'
@@ -82,3 +85,5 @@ gem 'faker'
 # cloudinary
 gem 'dotenv-rails', groups: [:development, :test]
 gem "cloudinary"
+=======
+>>>>>>> master
