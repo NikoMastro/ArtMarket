@@ -5,29 +5,7 @@
 <div class="container row product-container">
   <h1><%= @product.title %></h1>
   <div class="product-img border-bottom border-dark-subtle py-3">
-    <div class="row">
-      <div class="col-6">
-        <%= image_tag 'default_product_img.jpg', alt: "default image for product" %>
-      </div>
-      <div class="col-6">
-        <div class="row">
-          <div class="col-6 mb-3">
-            <%= image_tag 'default_product_img.jpg', alt: "default image for product" %>
-          </div>
-          <div class="col-6 mb-3">
-            <%= image_tag 'default_product_img.jpg', alt: "default image for product" %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <%= image_tag 'default_product_img.jpg', alt: "default image for product" %>
-          </div>
-          <div class="col-6">
-            <%= image_tag 'default_product_img.jpg', alt: "default image for product" %>
-          </div>
-        </div>
-      </div>
-    </div>
+    <%= render 'img_display' %>
   </div>
   <div class="product-description border-bottom border-dark-subtle py-3">
     <p><%= @product.title %></p>
