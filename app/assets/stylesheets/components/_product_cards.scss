@@ -40,3 +40,18 @@ body {
     !important;
   }
 }
+
+.own-product-card {
+  border-radius: 10px;
+}
+
+.own-product-card-body {
+  margin: 0;
+  padding: 0;
+  img {
+    border-radius: 10px 0px 0px 10px;
+  }
+}
+.price {
+  color: gray;
+}
