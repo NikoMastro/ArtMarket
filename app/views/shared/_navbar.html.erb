@@ -14,24 +14,12 @@
           </a>
           <ul class="dropdown-menu">
             <%# ['Jewelries', 'Watches & Bracelets', 'Suits & Dress', 'Sports car & Vintage', 'Boats'] %>
-            <li>
-              <%= link_to "All Articles", products_path, class: "dropdown-item" %>
-            </li>
-            <li>
-              <%= link_to "Jewelries", products_path(category: "Jewelries"), class: "dropdown-item" %>
-            </li>
-            <li>
-              <%= link_to "Watches & Bracelets", products_path(category: "Watches & Bracelets"), class: "dropdown-item" %>
-            </li>
-            <li>
-              <%= link_to "Suits & Dresses", products_path(category: "Suits & Dresses"), class: "dropdown-item" %>
-            </li>
-            <li>
-              <%= link_to "Sports car & Vintage", products_path(category: "Sports car & Vintage"), class: "dropdown-item" %>
-            </li>
-            <li>
-              <%= link_to "Boats", products_path(category: "Boats"), class: "dropdown-item" %>
-            </li>
+            <li><%= link_to "All Articles", products_path, class: "dropdown-item" %></li>
+            <li><%= link_to "Jewelries", products_path(category: "Jewelries"), class: "dropdown-item" %></li>
+            <li><%= link_to "Watches & Bracelets", products_path(category: "Watches & Bracelets"), class: "dropdown-item" %></li>
+            <li><%= link_to "Suits & Dresses", products_path(category: "Suits & Dresses"), class: "dropdown-item" %></li>
+            <li><%= link_to "Sports car & Vintage", products_path(category: "Sports car & Vintage"), class: "dropdown-item" %></li>
+            <li><%= link_to "Boats", products_path(category: "Boats"), class: "dropdown-item" %></li>
           </ul>
         </li>
         <li class="nav-item dropdown align-items-center m-2">
@@ -53,15 +41,15 @@
       <ul class="navbar-nav ms-auto">
         <% if user_signed_in? %>
           <%= link_to "/renting_requests", class: "d-flex align-items-center position-relative text-color-black text-decoration-none m-2" do %>
-            <i class="fa-regular fa-bookmark"></i>
+            <i class="fa-regular fa-bookmark nav-icon"></i>
             <span class="plus-tooltip">Requests</span>
           <% end %>
           <%= link_to "/products/own_products", class: "d-flex align-items-center position-relative text-color-black text-decoration-none m-2" do %>
-            <i class="fa-regular fa-gem"></i>
+            <i class="fa-regular fa-gem nav-icon"></i>
             <span class="plus-tooltip">Your Articles</span>
           <% end %>
           <%= link_to "/products/new", class: "d-flex align-items-center position-relative text-color-black text-decoration-none m-2" do %>
-            <i class="fa-regular fa-plus"></i>
+            <i class="fa-regular fa-plus nav-icon"></i>
             <span class="plus-tooltip">Add Article</span>
           <% end %>
           <!--avatar dropdown-->
