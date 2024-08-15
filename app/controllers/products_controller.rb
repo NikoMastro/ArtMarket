@@ -27,6 +27,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  def own_products
+    @own_products = current_user.products
+    # @renting_requests = RentingRequest.
+  end
+
   def featured
     @last_product = Product.last
   end

@@ -52,6 +52,11 @@
         <% if user_signed_in? %>
           <%= link_to "/renting_requests", class: "d-flex align-items-center position-relative text-color-black text-decoration-none m-2" do %>
             <i class="fa-regular fa-bookmark"></i>
+            <span class="plus-tooltip">Requests</span>
+          <% end %>
+          <%= link_to "/products/own_products", class: "d-flex align-items-center position-relative text-color-black text-decoration-none m-2" do %>
+            <i class="fa-regular fa-gem"></i>
+            <span class="plus-tooltip">Your Articles</span>
           <% end %>
           <%= link_to "/products/new", class: "d-flex align-items-center position-relative text-color-black text-decoration-none m-2" do %>
             <i class="fa-regular fa-plus"></i>
