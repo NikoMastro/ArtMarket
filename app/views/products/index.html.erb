@@ -1,9 +1,8 @@
-<!--TODO * It seems the cards are position absolute. We need to fix the container to make the footer going to the bot-->
 <!--The cards should be same sizes-->
 <div class="container">
   <div class="product-cards row">
     <% if @products.empty? %>
-      <p>You have no products</p>
+      <p>No products matched your search</p>
     <% else %>
       <% @products.each do |product| %>
         <div class="col-6">
