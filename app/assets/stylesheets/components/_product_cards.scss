@@ -4,16 +4,24 @@
   margin: 0 auto;
 }
 
-.card-title {
+.card-title{
   text-align: center;
-  padding: 10px 5px 3px;
+  padding: 10px 5px;
   font-family: 'Playfair Display', serif;
   font-weight: bold;
 }
 
 .card-product-pricing {
   position: absolute;
-  bottom: 0;
+  bottom: 14px;
+  right: 0;
+  padding: 10px;
+  font-family: 'Playfair Display', serif;
+  text-align: right;
+}
+.card-product-cat {
+  position: absolute;
+  bottom: -8px;
   right: 0;
   padding: 10px;
   font-family: 'Playfair Display', serif;
