@@ -2,6 +2,7 @@
   <div class="container-fluid position-relative">
     <h2 class="title position-absolute top-50 start-50 translate-middle">LuxeHaven</h2>
     <%= link_to "Home", root_path, class: "navbar-brand d-flex align-items-center position-relative m-2" %>
+    <%= link_to "About", about_path, class: "navbar-brand d-flex align-items-center position-relative m-2" %>
     <!--insert search bar here -->
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav me-auto">
@@ -13,12 +14,13 @@
             Categories
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">All Articles</a></li>
-            <li><a class="dropdown-item" href="#">Jewelries</a></li>
-            <li><a class="dropdown-item" href="#">Watches & Bracelets</a></li>
-            <li><a class="dropdown-item" href="#">Suits & Dresses</a></li>
-            <li><a class="dropdown-item" href="#">Sports car & Vintage </a></li>
-            <li><a class="dropdown-item" href="#">Boats </a></li>
+            <%# ['Jewelries', 'Watches & Bracelets', 'Suits & Dress', 'Sports car & Vintage', 'Boats'] %>
+            <li><%= link_to "All Articles", products_path, class: "dropdown-item" %></li>
+            <li><%= link_to "Jewelries", products_path(category: "Jewelries"), class: "dropdown-item" %></li>
+            <li><%= link_to "Watches & Bracelets", products_path(category: "Watches & Bracelets"), class: "dropdown-item" %></li>
+            <li><%= link_to "Suits & Dresses", products_path(category: "Suits & Dresses"), class: "dropdown-item" %></li>
+            <li><%= link_to "Sports car & Vintage", products_path(category: "Sports car & Vintage"), class: "dropdown-item" %></li>
+            <li><%= link_to "Boats", products_path(category: "Boats"), class: "dropdown-item" %></li>
           </ul>
         </li>
         <li class="nav-item dropdown align-items-center m-2">
@@ -40,21 +42,26 @@
       <ul class="navbar-nav ms-auto">
         <% if user_signed_in? %>
           <%= link_to "/renting_requests", class: "d-flex align-items-center position-relative text-color-black text-decoration-none m-2" do %>
-            <i class="fa-regular fa-bookmark"></i>
+            <i class="fa-regular fa-bookmark nav-icon"></i>
             <span class="plus-tooltip">Requests</span>
           <% end %>
           <%= link_to "/products/own_products", class: "d-flex align-items-center position-relative text-color-black text-decoration-none m-2" do %>
-            <i class="fa-regular fa-gem"></i>
+            <i class="fa-regular fa-gem nav-icon"></i>
             <span class="plus-tooltip">Your Articles</span>
           <% end %>
           <%= link_to "/products/new", class: "d-flex align-items-center position-relative text-color-black text-decoration-none m-2" do %>
-            <i class="fa-regular fa-plus"></i>
+            <i class="fa-regular fa-plus nav-icon"></i>
             <span class="plus-tooltip">Add Article</span>
           <% end %>
           <!--avatar dropdown-->
           <li class="nav-item dropdown">
             <a href="#" class="avatar d-flex justify-content-center align-items-center m-2" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fa-solid fa-user"></i>
+              <% if current_user.photo.attached? %>
+              <%# user photo will be here %>
+                <i class="fa-solid fa-user"></i>
+              <% else %>
+                <i class="fa-solid fa-user"></i>
+              <% end %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Update profile", "#", class: "dropdown-item" %>

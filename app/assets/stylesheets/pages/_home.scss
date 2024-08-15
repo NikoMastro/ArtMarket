@@ -1,9 +1,25 @@
 // Specific CSS for your home-page
 
 html {
-  background-color: #ffffff;
+  background-color: #AC9C8D,;
 }
 
 body {
-  color: #473030;
+  color:  #EFE9E1;
+  background:
+    linear-gradient(rgba(61, 48, 37, 0.3),rgba(14, 13, 12, 0.7) ),
+    url("bg_light.png");
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.footer {
+  margin-top: auto;
 }
