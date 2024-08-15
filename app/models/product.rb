@@ -11,10 +11,16 @@ class Product < ApplicationRecord
   # for search bar
   include PgSearch::Model
   pg_search_scope :search_by_title_and_description,
-  against: [ :title, :description ],
+  against: [ :title, :description, :category ],
   using: {
     tsearch: { prefix: true }
   }
+  pg_search_scope :search_by_category,
+  against: :category,
+  using: {
+    tsearch: { prefix: true }
+  }
+
   # include PgSearch::Model
   # pg_search_scope :search,
   #   against: [:title, :description, :category],

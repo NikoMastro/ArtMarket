@@ -13,12 +13,25 @@
             Categories
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">All Articles</a></li>
-            <li><a class="dropdown-item" href="#">Jewelries</a></li>
-            <li><a class="dropdown-item" href="#">Watches & Bracelets</a></li>
-            <li><a class="dropdown-item" href="#">Suits & Dresses</a></li>
-            <li><a class="dropdown-item" href="#">Sports car & Vintage </a></li>
-            <li><a class="dropdown-item" href="#">Boats </a></li>
+            <%# ['Jewelries', 'Watches & Bracelets', 'Suits & Dress', 'Sports car & Vintage', 'Boats'] %>
+            <li>
+              <%= link_to "All Articles", products_path, class: "dropdown-item" %>
+            </li>
+            <li>
+              <%= link_to "Jewelries", products_path(category: "Jewelries"), class: "dropdown-item" %>
+            </li>
+            <li>
+              <%= link_to "Watches & Bracelets", products_path(category: "Watches & Bracelets"), class: "dropdown-item" %>
+            </li>
+            <li>
+              <%= link_to "Suits & Dresses", products_path(category: "Suits & Dresses"), class: "dropdown-item" %>
+            </li>
+            <li>
+              <%= link_to "Sports car & Vintage", products_path(category: "Sports car & Vintage"), class: "dropdown-item" %>
+            </li>
+            <li>
+              <%= link_to "Boats", products_path(category: "Boats"), class: "dropdown-item" %>
+            </li>
           </ul>
         </li>
         <li class="nav-item dropdown align-items-center m-2">

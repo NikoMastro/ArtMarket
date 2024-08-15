@@ -3,6 +3,8 @@ class ProductsController < ApplicationController
     @products = Product.all
     if params[:query].present?
       @products = Product.search_by_title_and_description(params[:query])
+    elsif params[:category].present?
+      @products = Product.search_by_category(params[:category])
     end
   end
 
