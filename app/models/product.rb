@@ -6,9 +6,7 @@ class Product < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
   validates :price, presence: true
-<<<<<<< HEAD
-  has_one_attached :photo
-=======
+  has_one_attached :photos
 
   # include PgSearch::Model
   # pg_search_scope :search,
@@ -25,5 +23,4 @@ class Product < ApplicationRecord
 
   #   @products = Product.joins(:reviews).where(sql, q: "#{params[:q]}")
   # end
->>>>>>> master
 end
