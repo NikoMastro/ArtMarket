@@ -6,6 +6,21 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav me-auto">
         <!--search bar start TODO:JS interaction-->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" id="searchToggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </a>
+            <ul class="dropdown-menu search-bar">
+                <%= form_with url: products_path, method: :get, class: "d-flex" do %>
+                <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "Type a keyword"
+                    %>
+                <%= submit_tag "Search", name: "", class: "btn btn-primary button" %>
+                <% end %>
+            </ul>
+        </li>
         <!--search bar end-->
         <!--category bar start-->
         <li class="nav-item dropdown">

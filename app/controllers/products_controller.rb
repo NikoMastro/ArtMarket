@@ -1,6 +1,9 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.all
+    if params[:query].present?
+      @products = Product.search_by_title_and_description(params[:query])
+    end
   end
 
   def show
@@ -53,6 +56,12 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy!
     redirect_to products_path
+  end
+
+  def search
+    if params[:query].present?
+      @products = Product.search_by_title_and_description(:query)
+    end
   end
 
   private
