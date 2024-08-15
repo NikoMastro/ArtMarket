@@ -2,17 +2,10 @@
 <!--add distance between button on right-->
 <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" style="font-family:Playfair Display, serif;font-size: 18px">
   <div class="container-fluid">
-    <%= link_to "/", class: "navbar-brand logo-container" do %>
-      <%= image_tag "logo_home_03.jpg", class: "logo" %>
-    <% end %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <%= link_to "Home", root_path, class: "navbar-brand d-flex align-items-center position-relative text-dark text-decoration-none m-2" %>
+    <!--insert search bar here -->
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav me-auto">
-        <%# <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
-        </li> %>
         <!--search bar start TODO:JS interaction-->
         <li class="nav-profil position-relative">
           <a class="nav-link" href="#" role="button" id="searchToggle" aria-expanded="false">
