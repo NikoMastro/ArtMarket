@@ -55,7 +55,12 @@
           <!--avatar dropdown-->
           <li class="nav-item dropdown">
             <a href="#" class="avatar d-flex justify-content-center align-items-center m-2" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fa-solid fa-user"></i>
+              <% if current_user.photo.attached? %>
+              <%# user photo will be here %>
+                <i class="fa-solid fa-user"></i>
+              <% else %>
+                <i class="fa-solid fa-user"></i>
+              <% end %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Update profile", "#", class: "dropdown-item" %>
