@@ -25,8 +25,8 @@
           <title>Placeholder</title>
           <ul class="list-group">
             <li class="list-group-item">⭐️ verified user</li>
-            <li class="list-group-item">@user.user_id</li>
-            <li class="list-group-item">user email</li>
+            <li class="list-group-item"><%= @product.user.name %></li>
+            <li class="list-group-item"><%= @product.user.email %></li>
           </ul>
         </div>
         <%= render partial: 'requests/form', locals: {product: @product, renting_request: @renting_request} %>
