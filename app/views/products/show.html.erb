@@ -13,27 +13,35 @@
     </div>
     <div class="col-md-2 mt-2">
     </div>
-    <div class="col-md-4 mt-2">
-      <div class="owner-card">
-        <div class="avatar-img">
+    <!-- <div class="col-md-4 mt-2">
+      <div class="ownercard">
+        <svg class="bd-placeholder-img card-img-top" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="#868e96"></rect>
+          <text x="50%" y="50%" fill="#dee2e6" dy=".3em">user image</text>
+        </svg>
+        <div class="card-body">
+          <h5 class="card-title"><%= @user.name %></h5>
         </div>
-        <p>orgqoerbvqebrvqebr</p>
-        <div class="user-reviews">
-          <p>orgqoerbvqebrvqebr</p>
-        </div>
-        <%= render partial: 'requests/form', locals: {product: @product, renting_request: @renting_request} %>
-        <!--REVIEW-->
-        <div data-controller="reviews">
-          <div class="review-form border-bottom py-3">
-            <button data-action="click->reviews#toggle" class="btn btn-outline-warning my-4 ">Add Review</button>
-            <div class="d-none" data-reviews-target="form">
-              <%= render 'review/form', review: @review %>
-            </div>
-          </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">⭐️ verified user</li>
+          <li class="list-group-item"><%= @user.email %></li>
+        </ul>
+      </div>
+    </div> -->
+    <%= render partial: 'requests/form', locals: {product: @product, renting_request: @renting_request} %>
+    <!--REVIEW-->
+    <div data-controller="reviews">
+      <div class="review-form border-bottom py-3">
+        <button data-action="click->reviews#toggle" class="btn btn-outline-warning my-4 ">Add Review</button>
+        <div class="d-none" data-reviews-target="form">
+          <%= render 'review/form', review: @review %>
         </div>
       </div>
     </div>
   </div>
+</div>
+</div>
 </div>
 <div class="container">
   <div class="reviews py-3">
