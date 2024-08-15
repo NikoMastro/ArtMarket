@@ -9,28 +9,25 @@
   justify-content: center;
   align-items: center;
   text-decoration: none; // Removes underline
+  background-size: cover; // Ensure the image covers the avatar completely
+  background-position: center; // Center the image within the avatar
 }
 
-// Base avatar style
+// Base avatar style with background image
 .avatar {
   @include avatar-styles(40px);
-  background-color: #f8f9fa; // Light background color
-  color: #6c757d; // Grey color for icon
+  background-color: #f8f9fa; // Light background color for fallback
+  background-image: url('pic_avatar.jpg'); // Replace with the path to your image
   transition: background-color 0.3s, color 0.3s; // Smooth transitions
 
-  // Hover effect for avatar button
-  &:hover {
-    background-color: #e9ecef; // Slightly darker background
-    color: #343a40; // Darker color for icon on hover
-  }
 
-  // Icon inside the avatar button
-  i {
-    font-size: 24px; // Adjust icon size as needed
+  // Hover effect for avatar
+  &:hover {
+    background-color: #e9ecef; // Slightly darker background on hover
   }
 }
 
-// Large avatar style
+// Large avatar style with background image
 .avatar-large {
   @include avatar-styles(56px);
 }
@@ -64,6 +61,6 @@
   // Hover effect for dropdown items
   &:hover {
     background-color: #f8f9fa; // Light background on hover
-    color: #007bff; // Change text color on hover
+    color: #8c5a5a; // Change text color on hover
   }
 }
