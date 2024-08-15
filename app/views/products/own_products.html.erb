@@ -1,28 +1,29 @@
 <div class="container product-container">
   <h1>Your Items</h1>
-
   <% @own_products.each do |product| %>
     <div class="border-bottom border-dark-subtle py-3">
       <div class="row">
-        <div class="col-6">
+        <%# product card start %>
+        <div class="col-md-4 ml-12">
           <div class="card own-product-card">
             <div class="card-body row own-product-card-body">
-              <div class="col-6 product-thumbnail">
+              <div class="col-md-6 ml-6 product-thumbnail">
                 <% if product.photos.attached? %>
                   <%= cl_image_tag product.photos.first.key, crop: :fill, class: "product-thumbnail-img" %>
                 <% else %>
                   <%= image_tag 'default_product_img.jpg', alt: "default image for product", class: "product-thumbnail-img" %>
                 <% end %>
               </div>
-              <div class="col-6 position-relative">
+              <div class="col-md-6 ml-6">
                 <h4 class="pt-1"><%= product.title %></h4>
-                <h4 class="position-absolute bottom-0 end-0 px-2 price">¥ <%= product.price %></h4>
+                <h4 class="price">¥ <%= product.price %></h4>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-6">
+        <%# product card end %>
         <%# requests list start %>
+        <div class="col-md-8 ml-12">
         <% if product.renting_requests.size > 0 %>
           <% product.renting_requests.each do |renting_request| %>
             <div class="card">
