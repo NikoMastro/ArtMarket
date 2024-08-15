@@ -13,7 +13,7 @@
     </div>
     <div class="col-md-2 mt-2">
     </div>
-    <!-- <div class="col-md-4 mt-2">
+    <%# <!-- <div class="col-md-4 mt-2">
       <div class="ownercard">
         <svg class="bd-placeholder-img card-img-top" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
           <title>Placeholder</title>
@@ -22,13 +22,13 @@
         </svg>
         <div class="card-body">
           <h5 class="card-title"><%= @user.name %></h5>
-        </div>
+        <%# </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">⭐️ verified user</li>
           <li class="list-group-item"><%= @user.email %></li>
         </ul>
       </div>
-    </div> -->
+    <%# </div> %> 
     <%= render partial: 'requests/form', locals: {product: @product, renting_request: @renting_request} %>
     <!--REVIEW-->
     <div data-controller="reviews">
