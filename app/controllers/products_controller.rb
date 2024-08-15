@@ -1,6 +1,9 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.all
+    if params[:query].present?
+      @products = Product.search_by_title_and_description(params[:query])
+    end
   end
 
   def show
@@ -11,7 +14,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @category = ['Jewelries', 'Watches & Bracelets', 'Suits & Dress', 'Sports & Vintage']
+    @category = ['Jewelries', 'Watches & Bracelets', 'Suits & Dress', 'Sports car & Vintage', 'Boats']
   end
 
   def create
@@ -24,9 +27,22 @@ class ProductsController < ApplicationController
     end
   end
 
+  def own_products
+    @own_products = current_user.products
+    # @renting_requests = RentingRequest.
+  end
+
   def featured
     @last_product = Product.last
   end
+
+  # def research
+  #   @products =
+  #   if params[:q].present?
+  #     Product.search(params[:q])
+  #   else
+  #     Product.All
+  #   end
 
   def edit
     @product = Product.find(params[:id])
@@ -47,9 +63,15 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
 
+  def search
+    if params[:query].present?
+      @products = Product.search_by_title_and_description(:query)
+    end
+  end
+
   private
 
   def product_params
-    params.require(:product).permit(:title, :description, :price, :category)
+    params.require(:product).permit(:title, :description, :price, :category, photos: [])
   end
 end

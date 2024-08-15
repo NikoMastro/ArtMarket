@@ -1,0 +1,107 @@
+<% if @product.photos.attached? %>
+
+  <% if @product.photos.size == 5 %>
+    <div class="row">
+      <div class="col-6">
+        <%= cl_image_tag @product.photos[0].key, width: 300, height: 220, crop: :fill %>
+      </div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-6 mb-3">
+            <%= cl_image_tag @product.photos[1].key, width: 300, height: 220, crop: :fill %>
+          </div>
+          <div class="col-6 mb-3">
+            <%= cl_image_tag @product.photos[2].key, width: 300, height: 220, crop: :fill %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <%= cl_image_tag @product.photos[3].key, width: 300, height: 220, crop: :fill %>
+          </div>
+          <div class="col-6">
+            <%= cl_image_tag @product.photos[4].key, width: 300, height: 220, crop: :fill %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% elsif @product.photos.size == 4 %>
+    <div class="row">
+      <div class="col-6">
+        <%= cl_image_tag @product.photos[0].key, width: 300, height: 220, crop: :fill %>
+      </div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-12 mb-3">
+            <%= cl_image_tag @product.photos[1].key, width: 300, height: 220, crop: :fill %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <%= cl_image_tag @product.photos[2].key, width: 300, height: 220, crop: :fill %>
+          </div>
+          <div class="col-6">
+            <%= cl_image_tag @product.photos[3].key, width: 300, height: 220, crop: :fill %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% elsif @product.photos.size == 3 %>
+    <div class="row">
+      <div class="col-6">
+        <%= cl_image_tag @product.photos[0].key, width: 300, height: 220, crop: :fill %>
+      </div>
+      <div class="col-6">
+        <div class="row">
+          <div class="col-12 mb-3">
+            <%= cl_image_tag @product.photos[1].key, width: 300, height: 220, crop: :fill %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <%= cl_image_tag @product.photos[2].key, width: 300, height: 220, crop: :fill %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% elsif @product.photos.size == 2 %>
+    <div class="row">
+      <div class="col-6">
+        <%= cl_image_tag @product.photos[0].key, width: 300, height: 220, crop: :fill %>
+      </div>
+      <div class="col-6">
+        <%= cl_image_tag @product.photos[1].key, width: 300, height: 220, crop: :fill %>
+      </div>
+    </div>
+  <% elsif @product.photos.size == 1 %>
+    <div class="row">
+      <div class="col-12">
+        <%= cl_image_tag @product.photos[0].key, width: 300, height: 220, crop: :fill %>
+      </div>
+    </div>
+  <% end %>
+
+<% else %>
+  <div class="row">
+    <div class="col-6">
+      <%= image_tag 'default_product_img.jpg', alt: "default image for product" %>
+    </div>
+    <div class="col-6">
+      <div class="row">
+        <div class="col-6 mb-3">
+          <%= image_tag 'default_product_img.jpg', alt: "default image for product" %>
+        </div>
+        <div class="col-6 mb-3">
+          <%= image_tag 'default_product_img.jpg', alt: "default image for product" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <%= image_tag 'default_product_img.jpg', alt: "default image for product" %>
+        </div>
+        <div class="col-6">
+          <%= image_tag 'default_product_img.jpg', alt: "default image for product" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

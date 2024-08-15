@@ -1,14 +1,17 @@
-<!--TODO * It seems the cards are position absolute. We need to fix the container to make the footer going to the bot-->
 <!--The cards should be same sizes-->
 <div class="container">
   <div class="product-cards row">
     <% if @products.empty? %>
-      <p>You have no products</p>
+      <p>No products matched your search</p>
     <% else %>
       <% @products.each do |product| %>
         <div class="col-6">
           <div class="card mb-3 mt-3 ml-6 ms-3 product-card">
-            <%= image_tag 'default_product_img.jpg', style: "width: 100%; max-width: 500px;", alt: "default image for product" %>
+            <% if product.photos.attached? %>
+              <%= cl_image_tag product.photos.first.key, crop: :fill %>
+            <% else %>
+              <%= image_tag 'default_product_img.jpg', alt: "default image for list"%>
+            <% end %>
             <div class="card-body">
               <div class="mb-3">
                 <%= link_to "Show this product", product_path(product), class: "btn btn-outline-info", role: "button" %>
