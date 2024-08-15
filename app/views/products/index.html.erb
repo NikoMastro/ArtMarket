@@ -8,7 +8,11 @@
       <% @products.each do |product| %>
         <div class="col-6">
           <div class="card mb-3 mt-3 ml-6 ms-3 product-card">
-            <%= image_tag 'default_product_img.jpg', style: "width: 100%; max-width: 500px;", alt: "default image for product" %>
+            <% if product.photo.attached? %>
+              <%= cl_image_tag product.photo.key, width: 500, height: 500, crop: :fill %>
+            <% else %>
+              <%= image_tag 'default_product_img.jpg', alt: "default image for list", width: 500, height: 500 %>
+            <% end %>
             <div class="card-body">
               <div class="mb-3">
                 <%= link_to "Show this product", product_path(product), class: "btn btn-outline-info", role: "button" %>
