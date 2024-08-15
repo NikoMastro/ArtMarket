@@ -1,27 +1,15 @@
-<!--The user should see his favorites posts and access to them-->
-<!--add distance between button on right-->
-<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" style="font-family:Playfair Display, serif;font-size: 18px">
-  <div class="container-fluid">
-    <%= link_to "Home", root_path, class: "navbar-brand d-flex align-items-center position-relative text-dark text-decoration-none m-2" %>
+<nav class="navbar navbar-expand-lg sticky-top" style="font-family:Playfair Display, serif;font-size: 18px">
+  <div class="container-fluid position-relative">
+    <h2 class="title position-absolute top-50 start-50 translate-middle">LuxeHaven</h2>
+    <%= link_to "Home", root_path, class: "navbar-brand d-flex align-items-center position-relative m-2" %>
     <!--insert search bar here -->
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav me-auto">
         <!--search bar start TODO:JS interaction-->
-        <li class="nav-profil position-relative">
-          <a class="nav-link" href="#" role="button" id="searchToggle" aria-expanded="false">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </a>
-          <div id="searchBar" class="search-bar d-none position-absolute top-100 start-0 mt-2">
-            <form class="d-flex">
-              <input type="text" class="form-control" placeholder="Search...">
-              <button type="submit" class="btn btn-primary ms-2">Search</button>
-            </form>
-          </div>
-        </li>
         <!--search bar end-->
         <!--category bar start-->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle align-items-center m-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Categories
           </a>
           <ul class="dropdown-menu">
@@ -32,6 +20,17 @@
             <li><a class="dropdown-item" href="#">Sports car & Vintage </a></li>
             <li><a class="dropdown-item" href="#">Boats </a></li>
           </ul>
+        </li>
+        <li class="nav-profil position-relative align-items-center m-2">
+          <a class="nav-link" href="#" role="button" id="searchToggle" aria-expanded="false">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </a>
+          <div id="searchBar" class="search-bar d-none position-absolute top-100 start-0 mt-2">
+            <form class="d-flex">
+              <input type="text" class="form-control" placeholder="Search...">
+              <button type="submit" class="btn ms-2">Search</button>
+            </form>
+          </div>
         </li>
       </ul>
       <ul class="navbar-nav ms-auto">
@@ -45,8 +44,8 @@
           <% end %>
           <!--avatar dropdown-->
           <li class="nav-item dropdown">
-            <a href="#" class="avatar d-flex justify-content-center align-items-center text-color-grey text-decoration-none m-2" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fa-regular fa-user"></i>
+            <a href="#" class="avatar d-flex justify-content-center align-items-center m-2" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa-solid fa-user"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Update profile", "#", class: "dropdown-item" %>
