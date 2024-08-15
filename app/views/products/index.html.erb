@@ -5,21 +5,21 @@
       <p>No products matched your search</p>
     <% else %>
       <% @products.each do |product| %>
-        <div class="col-6">
-          <div class="card mb-3 mt-3 ml-6 ms-3 product-card">
+        <div class="col-4">
+          <div class="card m-3 ms-3 product-card">
             <% if product.photos.attached? %>
               <%= cl_image_tag product.photos.first.key, crop: :fill %>
             <% else %>
               <%= image_tag 'default_product_img.jpg', alt: "default image for list"%>
             <% end %>
             <div class="card-body">
-              <div class="mb-3">
+              <div class="m-3">
                 <%= link_to "Show this product", product_path(product), class: "btn btn-outline-info", role: "button" %>
               </div>
               <div>
                 <h2 class="card-title"><strong><%= product.title %></strong></h2>
-                <h3>¥<%= product.price %></h3>
-                <p><em><%= product.description %></em></p>
+                <h3 class="text-center"><strong>¥<%= product.price %> / Day. </strong></h3>
+                <p class="text-center"><em>By <%=%></em></p>
               </div>
             </div>
           </div>

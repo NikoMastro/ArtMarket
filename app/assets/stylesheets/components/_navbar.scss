@@ -1,7 +1,7 @@
 .navbar-nav .nav-link:hover,
 .navbar-brand:hover,
 .avatar:hover {
-  color: #72383D; /* Hover color */
+  color: #b4a8a9; /* Hover color */
 }
 
 
@@ -44,11 +44,11 @@
 }
 
 .search-bar {
-  opacity: 0.7;
+  opacity: 1;
   background-color: #322D29; // Background color of the search bar
   border: 1px solid #322D29; // Border color
   border-radius: 0.375rem; // Rounded corners
-  padding: 0.5rem; // Padding inside the search bar
+  padding: 1rem; // Padding inside the search bar
   z-index: 1000; // Ensure the search bar appears above other element
 }
 

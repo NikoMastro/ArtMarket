@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get 'about', to: 'pages#about', as: :about
+  get 'terms', to: 'pages#terms', as: :terms
   get "/products/own_products", to: "products#own_products", as: :own_products
   resources :products do
     resources :reviews, only: [:create, :show]
