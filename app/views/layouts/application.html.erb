@@ -11,8 +11,10 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <%= render "shared/navbar" %>
-    <%= yield %>
+    <div class="wrap">
+      <%= render "shared/navbar" %>
+      <%= yield %>
+      <footer class="footer"><%= render "shared/footer" %></footer>
+    </div>
   </body>
-  <footer class="footer"><%= render "shared/footer" %></footer>
 </html>
