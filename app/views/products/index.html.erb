@@ -8,10 +8,10 @@
       <% @products.each do |product| %>
         <div class="col-6">
           <div class="card mb-3 mt-3 ml-6 ms-3 product-card">
-            <% if product.photo.attached? %>
-              <%= cl_image_tag product.photo.key, width: 500, height: 500, crop: :fill %>
+            <% if product.photos.attached? %>
+              <%= cl_image_tag product.photos.first.key, crop: :fill %>
             <% else %>
-              <%= image_tag 'default_product_img.jpg', alt: "default image for list", width: 500, height: 500 %>
+              <%= image_tag 'default_product_img.jpg', alt: "default image for list"%>
             <% end %>
             <div class="card-body">
               <div class="mb-3">
