@@ -45,10 +45,11 @@
         <% if user_signed_in? %>
           <%= link_to "/renting_requests", class: "d-flex align-items-center position-relative text-color-black text-decoration-none m-2" do %>
             <i class="fa-solid fa-cart-shopping"></i>
-            <i class="fa-solid fa-right-left-large"></i>
+            <a class="d-flex align-items-center position-relative m-2">Requests</a>
           <% end %>
           <%= link_to "/products/own_products", class: " d-flex align-items-center position-relative text-color-black text-decoration-none m-2" do %>
             <i class="fa-solid fa-book"></i>
+            <a class="d-flex align-items-center position-relative m-2">My Items</a>
             <span class="plus-tooltip">Your Articles</span>
           <% end %>
           <%= link_to "/products/new", class: "icon-right d-flex align-items-center position-relative text-color-black text-decoration-none m-2" do %>

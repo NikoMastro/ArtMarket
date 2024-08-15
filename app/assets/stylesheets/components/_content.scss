@@ -5,15 +5,19 @@
   border-bottom: solid 1px #322D29;
   border-width: thin;
   padding: 5px;
-
 }
-
 .content-border {
   border: double 5px rgb(50, 45, 41);
   border-radius: 4px;
   padding: 15px;
   background-color: rgba(50, 45, 41, 0.4);
 }
+
+.concept img {
+  border: 1px solid #EFE9E1;
+}
+
+
 
 h2 {
   color: #EFE9E1;
@@ -26,7 +30,9 @@ h2 {
   border-width: thin;
 
 }
-
-.concept img {
-  border: 1px solid #EFE9E1;
+h4{
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 3px;
+  padding: 5px;
 }
