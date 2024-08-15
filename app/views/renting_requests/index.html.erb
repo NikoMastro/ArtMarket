@@ -26,9 +26,8 @@
   <% end %>
 
   <h1>All Requests on Your Items</h1>
-  <% @renting_requests_owner.each do |requests_on_product| %>
+  <% @renting_requests_owner.each do |renting_request| %>
 
-  <% requests_on_product.each do |renting_request| %>
     <% product = renting_request.product %>
     <div class="card mb-3">
       <div class="card-body row">
@@ -51,7 +50,6 @@
         </div>
       </div>
     </div>
-  <% end %>
   <% end %>
 
 </div>
