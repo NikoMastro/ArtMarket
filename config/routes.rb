@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create, :show]
     resources :renting_requests, only: :create
   end
+    resources :reviews, only: [:destroy]
 
   resources :renting_requests, only: [:index, :update]
 

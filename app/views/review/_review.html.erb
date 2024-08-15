@@ -3,6 +3,12 @@
     <p><% review.rating.times do %>
       <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
     <% end %></p>
-    <p><%= review.content %></p>
+  <div class="d-flex justify-content-between">
+    <%= review.content %>
+  </div>
+  <div class="d-flex justify-content-end">
+      <%= link_to review_path(review), data: { turbo_method: "delete", turbo_confirm: "Are you sure to delete this review?" }, class:"text-decoration-none" do %>
+      <i class="fa-solid fa-trash"></i>
+      <% end %>
   </div>
 </div>
