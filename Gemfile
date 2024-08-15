@@ -52,6 +52,8 @@ gem "sassc-rails"
 gem "devise"
 gem 'faker'
 gem "pg_search"
+gem 'dotenv-rails', groups: [:development, :test]
+gem "cloudinary"
 
 group :development, :test do
   gem "dotenv-rails"
@@ -77,13 +79,3 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-<<<<<<< HEAD
-
-# for seed
-gem 'faker'
-
-# cloudinary
-gem 'dotenv-rails', groups: [:development, :test]
-gem "cloudinary"
-=======
->>>>>>> master
