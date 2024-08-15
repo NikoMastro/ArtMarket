@@ -28,6 +28,14 @@ class ProductsController < ApplicationController
     @last_product = Product.last
   end
 
+  # def research
+  #   @products =
+  #   if params[:q].present?
+  #     Product.search(params[:q])
+  #   else
+  #     Product.All
+  #   end
+
   def edit
     @product = Product.find(params[:id])
   end
