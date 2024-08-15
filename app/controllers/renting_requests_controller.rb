@@ -5,9 +5,9 @@ class RentingRequestsController < ApplicationController
   # #see all my requests as a seller (Owner)
   #see all my requests as a client (buyer)
   def index
-    @renting_requests = current_user.renting_requests
+    @renting_requests = current_user.renting_requests.reverse
     @own_products = current_user.products
-    @renting_requests_owner = current_user.renting_requests_as_owner
+    @renting_requests_owner = current_user.renting_requests_as_owner.reverse
   end
 
   def update
