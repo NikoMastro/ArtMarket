@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @category = ['Jewelries', 'Watches & Bracelets', 'Suits & Dress', 'Sports & Vintage']
+    @category = ['Jewelries', 'Watches & Bracelets', 'Suits & Dress', 'Sports car & Vintage', 'Boats']
   end
 
   def create
@@ -30,6 +30,14 @@ class ProductsController < ApplicationController
   def featured
     @last_product = Product.last
   end
+
+  # def research
+  #   @products =
+  #   if params[:q].present?
+  #     Product.search(params[:q])
+  #   else
+  #     Product.All
+  #   end
 
   def edit
     @product = Product.find(params[:id])
@@ -59,7 +67,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:title, :description, :price, :category)
+    params.require(:product).permit(:title, :description, :price, :category, photos: [])
   end
 
 end
