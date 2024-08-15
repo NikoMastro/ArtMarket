@@ -79,9 +79,3 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-
-# for seed
-gem 'faker'
-
-# for search bar
-gem "pg_search"
