@@ -78,3 +78,7 @@ end
 
 # for seed
 gem 'faker'
+
+# cloudinary
+gem 'dotenv-rails', groups: [:development, :test]
+gem "cloudinary"
