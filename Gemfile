@@ -78,3 +78,6 @@ end
 
 # for seed
 gem 'faker'
+
+# for search bar
+gem "pg_search"
