@@ -11,6 +11,15 @@
           <p>¥<%= @product.price %>/ Day.</p>
           <p><%= @product.description %></p>
         </div>
+        <!--REVIEW-->
+        <div data-controller="reviews">
+          <div class="review-form py-3">
+            <button data-action="click->reviews#toggle" class="btn btn-outline-warning my-4 ">Add Review</button>
+            <div class="d-none" data-reviews-target="form">
+              <%= render 'review/form', review: @review %>
+            </div>
+          </div>
+        </div>
         <div class="reviews py-3">
           <% @product.reviews.each do |review| %>
             <%= render 'review/review', review: review %>
@@ -20,24 +29,14 @@
       <div class="col-md-1 mt-1">
       </div>
       <div class="col-md-4 mt-2">
+        <%= render partial: 'requests/form', locals: {product: @product, renting_request: @renting_request} %>
         <div class="ownercard">
           <%= image_tag 'default_product_img.jpg', alt: "default image for product", class: "product-thumbnail-img" %>
-          <title>Placeholder</title>
           <ul class="list-group">
             <li class="list-group-item">⭐️ verified user</li>
-            <li class="list-group-item">review.user_id</li>
-            <li class="list-group-item">user email</li>
+            <li class="list-group-item"><%=%></li>
+            <li class="list-group-item"><%=%></li>
           </ul>
-        </div>
-        <%= render partial: 'requests/form', locals: {product: @product, renting_request: @renting_request} %>
-        <!--REVIEW-->
-        <div data-controller="reviews">
-          <div class="review-form py-3">
-            <button data-action="click->reviews#toggle" class="btn btn-outline-warning my-4 ">Add Review</button>
-            <div class="d-none" data-reviews-target="form">
-              <%= render 'review/form', review: @review %>
-            </div>
-          </div>
         </div>
       </div>
     </div>

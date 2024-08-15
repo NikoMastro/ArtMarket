@@ -5,21 +5,22 @@
       <p>No products matched your search</p>
     <% else %>
       <% @products.each do |product| %>
-        <div class="col-4">
+        <div class="col-3">
           <div class="card m-3 ms-3 product-card">
             <% if product.photos.attached? %>
               <%= cl_image_tag product.photos.first.key, crop: :fill %>
             <% else %>
               <%= image_tag 'default_product_img.jpg', alt: "default image for list"%>
             <% end %>
-            <div class="card-body">
-              <div class="m-3">
-                <%= link_to "Show this product", product_path(product), class: "btn btn-outline-info", role: "button" %>
-              </div>
-              <div>
-                <h2 class="card-title"><strong><%= product.title %></strong></h2>
-                <p class="text-center"><em>By <%=%></em></p>
-                <h3 class="text-end"><strong>¥<%= product.price %> / Day. </strong></h3>
+            <div class="card-produc">
+              <%= link_to "Show this product", product_path(product), class: "btn btn-outline-info", role: "button" %>
+              <div class="card-product-infos">
+                <div>
+                  <h3 class="card-title"><%= product.title %></h3>
+                </div>
+                <!--<h3> Should display stars of ratings</h3>-->
+                <h3 class="card-product-pricing">DAY/¥<%= product.price %></h3>
+                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-product-user avatar-bordered" />
               </div>
             </div>
           </div>
