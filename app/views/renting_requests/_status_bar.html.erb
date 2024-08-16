@@ -1,7 +1,7 @@
 <% if status == "pending" %>
-  <p class="pending status"> PENDING </p>
+  <div class="status pending"><p> PENDING </p></div>
 <% elsif status == "rejected" %>
-  <p class="rejected status"> REJECTED </p>
+  <div class="status rejected"><p> REJECTED </p></div>
 <% elsif status == "accepted" %>
-  <p class="accepted status"> ACCEPTED </p>
+  <div class="status accepted"><p> ACCEPTED </p></div>
 <% end %>

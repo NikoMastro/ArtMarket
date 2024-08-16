@@ -3,27 +3,49 @@
   height: 100%;
 }
 .product-thumbnail {
-  height: 150px;
+  height: 100%;
   padding: 0;
 }
 
-.pending {
-  background-color: blue;
-  width: 100%;
+
+.accepted {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  color: #6091d3;
+  border: solid 3px #6091d3;
+  border-radius: 10px;
   text-align: center;
-  color: white;
+  p {
+    margin: 0;
+    padding: 0;
+  }
 }
 .rejected {
-  background-color: red;
-  width: 100%;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  color: #C63C51;
+  border: solid 3px #C63C51;
+  border-radius: 10px;
   text-align: center;
-  color: white;
+  p {
+    margin: 0;
+    padding: 0;
+  }
 }
-.accepted {
-  background-color: green;
-  width: 100%;
+.pending {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  color: #387F39;
+  border: solid 3px #387F39;
+  border-radius: 10px;
   text-align: center;
-  color: white;
+  p {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .new_renting_request {
@@ -32,4 +54,15 @@
   align-content: center;
   background-color: rgba(172, 156, 141, 0.6);
   border-radius: 4px;
+}
+
+.request-detail {
+  border-radius: 10px;
+  color: #507fbb;
+  font-weight: bold;
+  text-align: right;
+  p {
+    padding: 2px 0px;
+    margin: 0px;
+  }
 }
