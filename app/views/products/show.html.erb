@@ -36,14 +36,6 @@
       </div>
       <div class="col-md-4 mt-2">
         <%= render partial: 'requests/form', locals: {product: @product, renting_request: @renting_request} %>
-        <div class="ownercard">
-          <%= image_tag @product.user.photo, class: "card-product-user avatar-bordered" if @product.user.photo.attached? %>
-          <ul class="list-group">
-            <li class="list-group-item">⭐️ Verified user</li>
-            <li class="list-group-item"><%= @product.user.name %></li>
-            <li class="list-group-item"><%= @product.user.email %></li>
-          </ul>
-        </div>
       </div>
     </div>
   </div>

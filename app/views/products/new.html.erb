@@ -1,13 +1,19 @@
-<div class="container">
-  <h1>Add Product</h1>
-  <%= simple_form_for(@product) do |f| %>
-    <%= f.input :title %>
-    <%= f.input :category, as: :select, collection: @category %>
-    <%= f.input :price %>
-    <%= f.input :description, as: :text %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <div class="form-actions">
-      <%= f.button :submit, class:"btn btn-info my-3" %>
+<div class="container add-product-page">
+  <h2>Add a Product</h2>
+  <div class="add-product-form">
+    <%= simple_form_for(@product) do |f| %>
+      <div class="image-upload-section">
+        <%= f.input :photos, as: :file, input_html: { multiple: true, class: "file-input" } %>
+      </div>
+      <div class="product-details-section">
+        <%= f.input :title %>
+        <%= f.input :category, as: :select, collection: @category %>
+        <%= f.input :price %>
+        <%= f.input :description, as: :text %>
+        <div class="form-actions">
+          <%= f.button :submit, class: "btn btn-info my-3" %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>
