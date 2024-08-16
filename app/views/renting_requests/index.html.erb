@@ -2,19 +2,23 @@
   <h1>All your request:</h1>
   <% @renting_requests.each do |renting_request| %>
     <% product = renting_request.product %>
-    <div class="card mb-3">
-      <div class="card-body row">
-        <h4><%= product.title %></h4>
+    <div class="card mb-3 own-product-card">
+      <div class="card-body own-product-card-body row">
         <div class="col-3 product-thumbnail">
-          <%= image_tag 'default_product_img.jpg', alt: "default image for product", class: "product-thumbnail-img" %>
+          <% if product.photos.attached? %>
+            <%= cl_image_tag product.photos.first.key, crop: :fill, class: "product-thumbnail-img" %>
+          <% else %>
+            <%= image_tag 'default_product_img.jpg', alt: "default image for product", class: "product-thumbnail-img" %>
+          <% end %>
         </div>
         <div class="col-9">
+        <h4><%= product.title %></h4>
           <%= render partial: 'renting_requests/status_bar', locals: { status: renting_request.status } %>
           <div class="row">
             <div class="col-6">
               <p><%= product.description %></p>
             </div>
-            <div class="col-6">
+            <div class="col-6 request-detail">
               <p>start date: <%= renting_request.start_date %></p>
               <p>end date: <%= renting_request.end_date %></p>
               <p>Total price: ¥ <%= renting_request.total_price.to_i %></p>
