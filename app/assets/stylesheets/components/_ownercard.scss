@@ -41,3 +41,50 @@
     }
   }
 }
+
+.product-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.own-product-card {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+.product-title {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+
+.requests-section h5 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.request-card {
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 1px solid #e0e0e0;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.request-card p {
+  margin: 0;
+}
+
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.mb-3 {
+  margin-bottom: 1rem;
+}

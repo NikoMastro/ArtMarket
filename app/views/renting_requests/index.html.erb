@@ -1,5 +1,4 @@
-<div class="container product-container">
-  <h1>All your request:</h1>
+<div class="container product-container mt-4">
   <% @renting_requests.each do |renting_request| %>
     <% product = renting_request.product %>
     <div class="card mb-3 own-product-card">
@@ -12,7 +11,7 @@
           <% end %>
         </div>
         <div class="col-9">
-        <h4><%= product.title %></h4>
+          <h4><%= product.title %></h4>
           <%= render partial: 'renting_requests/status_bar', locals: { status: renting_request.status } %>
           <div class="row">
             <div class="col-6">
