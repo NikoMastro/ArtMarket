@@ -1,56 +1,71 @@
-<!--The user should see his favorites posts and access to them-->
-<!--add distance between button on right-->
-<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" style="font-family:Playfair Display, serif;font-size: 18px">
-  <div class="container-fluid">
-    <%= link_to "Home", root_path, class: "navbar-brand d-flex align-items-center position-relative text-dark text-decoration-none m-2" %>
-    <!--insert search bar here -->
+<nav class="navbar navbar-expand-lg navbar-collapse sticky-top" style="font-family:Playfair Display, serif;font-size: 18px">
+  <div class="container-fluid position-relative">
+    <!-- Title centered in the middle -->
+    <h2 class="title position-absolute top-50 start-50 translate-middle">LuxeHaven</h2>
+    <!-- Other links on the left -->
+    <%= link_to "Home", root_path, class: "navbar-brand d-flex align-items-center position-relative m-2" %>
+    <%# <%= link_to "All Articles", products_path, class: "navbar-brand d-flex align-items-center position-relative m-2" %>
+    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa-solid fa-chevron-up fa-rotate-180 text-color: white, text-decoration-none"></i>
+    </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <!-- Collapsible button on the right -->
       <ul class="navbar-nav me-auto">
-        <!--search bar start TODO:JS interaction-->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" id="searchToggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </a>
-            <ul class="dropdown-menu search-bar">
-                <%= form_with url: products_path, method: :get, class: "d-flex" do %>
-                <%= text_field_tag :query,
-                params[:query],
-                class: "form-control",
-                placeholder: "Type a keyword"
-                    %>
-                <%= submit_tag "Search", name: "", class: "btn btn-primary button" %>
-                <% end %>
-            </ul>
-        </li>
-        <!--search bar end-->
-        <!--category bar start-->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Categories
+          <a class="nav-link dropdown-toggle align-items-center m-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Articles
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">All Articles</a></li>
-            <li><a class="dropdown-item" href="#">Jewelries</a></li>
-            <li><a class="dropdown-item" href="#">Watches & Bracelets</a></li>
-            <li><a class="dropdown-item" href="#">Suits & Dresses</a></li>
-            <li><a class="dropdown-item" href="#">Sports car & Vintage </a></li>
-            <li><a class="dropdown-item" href="#">Boats </a></li>
+            <%# ['Jewelries', 'Watches & Bracelets', 'Suits & Dress', 'Sports car & Vintage', 'Boats'] %>
+            <li><%= link_to "All Articles", products_path, class: "dropdown-item"  %></li>
+            <li><%= link_to "Jewelries", products_path(category: "Jewelries"), class: "dropdown-item" %></li>
+            <li><%= link_to "Watches & Bracelets", products_path(category: "Watches & Bracelets"), class: "dropdown-item" %></li>
+            <li><%= link_to "Suits & Dresses", products_path(category: "Suits & Dresses"), class: "dropdown-item" %></li>
+            <li><%= link_to "Sports car & Vintage", products_path(category: "Sports car & Vintage"), class: "dropdown-item" %></li>
+            <li><%= link_to "Boats", products_path(category: "Boats"), class: "dropdown-item" %></li>
           </ul>
         </li>
+        <li class="nav-item dropdown m-2">
+          <a class="nav-link" href="#" role="button" id="searchToggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </a>
+          <ul class="dropdown-menu search-bar">
+            <%= form_with url: products_path, method: :get, class: "d-flex" do %>
+              <%= text_field_tag :query,
+                params[:query],
+                class: "form",
+                placeholder: "Look for an article"
+                    %>
+              <%= submit_tag "Search", name: "", class:"btn btn-outline-light" %>
+            <% end %>
+          </ul>
+        </li>
+        <%= link_to "About", about_path, class: "navbar-brand d-flex align-items-center position-relative m-2" %>
       </ul>
       <ul class="navbar-nav ms-auto">
         <% if user_signed_in? %>
           <%= link_to "/renting_requests", class: "d-flex align-items-center position-relative text-color-black text-decoration-none m-2" do %>
-            <i class="fa-regular fa-bookmark"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="d-flex align-items-center position-relative m-2">Requests</span>
+          <% end %>
+          <%= link_to "/products/own_products", class: "d-flex align-items-center position-relative text-color-black text-decoration-none m-2" do %>
+            <i class="fa-solid fa-book"></i>
+            <span class="d-flex align-items-center position-relative m-2">My Items</span>
+            <span class="plus-tooltip">Your Articles</span>
           <% end %>
           <%= link_to "/products/new", class: "d-flex align-items-center position-relative text-color-black text-decoration-none m-2" do %>
-            <i class="fa-regular fa-plus"></i>
+            <i class="fa-regular fa-plus nav-icon"></i>
             <span class="plus-tooltip">Add Article</span>
           <% end %>
           <!--avatar dropdown-->
           <li class="nav-item dropdown">
-            <a href="#" class="avatar d-flex justify-content-center align-items-center text-color-grey text-decoration-none m-2" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fa-regular fa-user"></i>
+            <a href="#" class="avatar d-flex justify-content-center align-items-center m-2 position-relative" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <% if current_user.photo.attached? %>
+                <%# user photo will be here %>
+                <i class="fa-solid fa-user"></i>
+              <% else %>
+                <i class="fa-solid fa-user"></i>
+              <% end %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Update profile", "#", class: "dropdown-item" %>

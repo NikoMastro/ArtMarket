@@ -1,23 +1,42 @@
-.content h2 {
+.content h2 h3{
   text-align: center;
   padding-top: 30px;
   padding-bottom: 10px;
-  border-bottom: solid 1px #131111;
+  border-bottom: solid 1px #322D29;
   border-width: thin;
   padding: 5px;
 }
-
 .content-border {
-  border: double 5px #8d021f;
+  border: double 5px rgb(50, 45, 41);
+  border-radius: 4px;
+  padding: 15px;
+  background-color: rgba(50, 45, 41, 0.4);
+}
+
+.concept img {
+  border: 1px solid #EFE9E1;
+}
+
+h2 {
+  color: #EFE9E1;
+  text-shadow: 1px 1px #72383D;
+  font-family:Playfair Display;
+  text-align: center;
+  margin: 4px;
+  padding: 4px 0px;
+  border-bottom: solid 1px #322D29;
+  border-width: thin;
+
+}
+h4{
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 3px;
   padding: 5px;
 }
 
-// .bg-content {
-//   background-image: url(watch_bg);
-//   width: 475px;
-//   height: 500px;
-//   object-fit: cover;
-//   background-position: 50% 50%;
-//   opacity: 0.3;
-
-// }
+.backbtn {
+  position: absolute;
+  top:80px;
+  left:50px;
+}

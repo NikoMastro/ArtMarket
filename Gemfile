@@ -80,8 +80,3 @@ group :test do
   gem "selenium-webdriver"
 end
 
-# for seed
-gem 'faker'
-
-# for search bar
-gem "pg_search"
