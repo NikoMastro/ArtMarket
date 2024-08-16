@@ -1,7 +1,7 @@
 <!--The cards should be same sizes-->
 <div class="container">
   <div class="product-cards row">
-    <% if @products.empty? %>
+    <% if @products.blank? %>
       <p>No products matched your search</p>
     <% else %>
       <% @products.each do |product| %>
