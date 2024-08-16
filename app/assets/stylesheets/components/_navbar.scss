@@ -1,77 +1,99 @@
-.navbar-nav .nav-link:hover,
-.navbar-brand:hover,
-.avatar:hover {
-  color: #72383D; /* Hover color */
-}
-
-
+// Navbar Styles
 .navbar {
-  background-color: #322D29;
+  background-color: #322d29;
   font-family: 'Playfair Display', serif;
   height: 70px;
+  max-height: 70px
+  !important;
+
+  .navbar-brand,
+  .nav-link {
+    font-size: 1.3rem
+    !important; /* Adjust font size as needed */
+    padding: 0.5rem 0.6rem;
+    color: #efe9e1; // Text color
+    &:hover {
+      color: #b4a8a9; // Hover color
+    }
+  }
+
+  .navbar-toggler {
+    background-color: transparent;
+    border: none;
+
+    i {
+      color: #fff; // Icon color
+      font-size: 24px; // Adjust the size of the icon if needed
+
+      &:hover {
+        color: #e9ecef; // Slightly darker on hover
+      }
+    }
+  }
 }
 
-.navbar-brand,
-.nav-link {
-  color: #EFE9E1;/* Text color */
-}
 
+
+// Logo Styles
 .logo-container {
   display: flex;
   align-items: center;
   padding: 0;
 }
 
-.logo {
-  width: 70px; /* Adjust the width as needed */
-  height: 70px; /* Keep it equal to the width for a square logo */
-  object-fit: cover; /* Ensure the image scales correctly */
-}
-
+// Tooltip Styles
 .plus-tooltip {
   display: none;
   position: absolute;
-  top: 100%; /* Adjust if needed */
+  top: 100%; // Adjust if needed
   left: 50%;
   transform: translateX(-50%);
-  background-color: #322D29; /* Background color for the tooltip */
-  border: 1px solid #72383D; /* Border color */
+  background-color: #322d29; // Background color for the tooltip
+  border: 1px solid #72383d; // Border color
   padding: 5px 10px;
-  border-radius: 4px; /* Rounded corners */
+  border-radius: 4px; // Rounded corners
   white-space: nowrap;
-  z-index: 1000; /* Ensure tooltip appears above other elements */
-  font-size: 14px; /* Adjust font size as needed */
+  z-index: 1000; // Ensure tooltip appears above other elements
+  font-size: 14px; // Adjust font size as needed
 }
 
-.search-bar {
-  opacity: 0.7;
-  background-color: #322D29; // Background color of the search bar
-  border: 1px solid #322D29; // Border color
+ .title {
+  border: solid 1px #EFE9E1;
+  border-radius: 4px;
+  padding: 3px 12px;
+ }
+
+ .icon-right {
+  border: solid 1px #EFE9E1;
+  border-radius: 50%;
+  padding: 3px 12px; }
+
+  // Dropdown menu styles
+.dropdown-menu {
+  background-color: #ffffff; // White background
+  border: 1px solid #dee2e6; // Light border color
   border-radius: 0.375rem; // Rounded corners
-  padding: 0.5rem; // Padding inside the search bar
-  z-index: 1000; // Ensure the search bar appears above other element
+  padding: 0.5rem 0; // Vertical padding
 }
 
+// Dropdown item styles
+.dropdown-item {
+  color: #212529; // Dark text color
+  font-size: 14px; // Adjust font size as needed
+  padding: 0.5rem 1rem; // Padding around items
+  text-decoration: none; // Remove underline
+  transition: background-color 0.3s; // Smooth background transition
 
-.search-bar btn {
-  flex-shrink: 0; // Button does not shrink
+  // Hover effect for dropdown items
+  &:hover {
+    background-color: #2b2e31; // Light background on hover
+    color: #ac9c8d; // Change text color on hover
+  }
 }
 
-.text-color-black {
-  color: #000; /* Black color for the icon and text */
-}
-.title {
-  color: #EFE9E1;
-  font-family:Playfair Display;
-}
 .search-bar {
-  min-width: 300px; /* Adjust width as needed */
-}
-
-.search-bar .form {
-  flex-grow: 1; /* Allow the input to take up remaining space */
-}
-
-.search-bar .btn {
-  flex-shrink: 0; /* Prevent the button from shrinking */
+  background-color:rgba(50, 45, 41, 0.9);
+  color: #EFE9E1;
+  padding: 4px;
+  margin: 2px;
 }

@@ -54,8 +54,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_14_222000) do
   end
 
   create_table "renting_requests", force: :cascade do |t|
-    t.date "start_date"
-    t.date "end_date"
+    t.string "start_date"
+    t.string "end_date"
     t.string "status"
     t.float "total_price"
     t.bigint "user_id", null: false

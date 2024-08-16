@@ -1,8 +1,11 @@
 class ProductsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @products = Product.all
     if params[:query].present?
       @products = Product.search_by_title_and_description(params[:query])
+    elsif params[:category].present?
+      @products = Product.search_by_category(params[:category])
     end
   end
 
