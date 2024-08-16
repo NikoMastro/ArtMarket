@@ -1,27 +1,36 @@
-<div class="container product-container">
-  <h1>All your request:</h1>
-  <% @renting_requests.each do |renting_request| %>
-    <% product = renting_request.product %>
-    <div class="card mb-3">
-      <div class="card-body row">
-        <h4><%= product.title %></h4>
-        <div class="col-3 product-thumbnail">
-          <%= image_tag 'default_product_img.jpg', alt: "default image for product", class: "product-thumbnail-img" %>
-        </div>
-        <div class="col-9">
-          <%= render partial: 'renting_requests/status_bar', locals: { status: renting_request.status } %>
-          <div class="row">
-            <div class="col-6">
-              <p><%= product.description %></p>
-            </div>
-            <div class="col-6">
-              <p>start date: <%= renting_request.start_date %></p>
-              <p>end date: <%= renting_request.end_date %></p>
-              <p>Total price: ¥ <%= renting_request.total_price.to_i %></p>
+<!--The cards should be same sizes-->
+<div class="container">
+  <div class="product-cards row">
+    <% if @products.empty? %>
+      <p>No products matched your search</p>
+    <% else %>
+      <% @products.each do |product| %>
+        <div class="col-3">
+          <div class="card m-3 ms-3 product-card">
+            <% if product.photos.attached? %>
+              <%= cl_image_tag product.photos.first.key, crop: :fill %>
+            <% else %>
+              <%= image_tag 'default_product_img.jpg', alt: "default image for list"%>
+            <% end %>
+            <div class="col-md-4 mt-2">
+              <%= render partial: 'requests/form', locals: {product: @product, renting_request: @renting_request} %>
+              <div class="ownercard">
+                <% if product.user.photo.attached? %>
+                  <%= cl_image_tag product.user.photo.key, class: "card-product-user avatar-bordered" %>
+                <% else %>
+                  <%= image_tag "default_user.jpg", alt: "text", class: "card-product-user avatar-bordered" %>
+                <% end %>
+                <ul class="list-group">
+                  <li class="list-group-item">⭐️ Verified user</li>
+                  <li class="list-group-item"><%= product.user.name %></li>
+                  <li class="list-group-item"><%= product.user.email %></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  <% end %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
+<!--<div>#= link_to "Delete",product_path(product),data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this product?" }</div>-->
