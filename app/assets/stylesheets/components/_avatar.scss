@@ -17,7 +17,7 @@
 .avatar {
   @include avatar-styles(40px);
   background-color: #f8f9fa; // Light background color for fallback
-  background-image: url('pic_avatar.jpg'); // Replace with the path to your image
+  // background-image: url('pic_avatar.jpg'); // Replace with the path to your image
   transition: background-color 0.3s, color 0.3s; // Smooth transitions
 
 

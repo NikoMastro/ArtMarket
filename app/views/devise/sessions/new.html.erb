@@ -15,9 +15,6 @@
                 input_html: { autocomplete: "new-password", class: "form-control text-white bg-secondary border-secondary" } %>
         </div>
         <div class="form-floating mb-3">
-          <%= f.input :photo, as: :file %>
-        </div>
-        <div class="form-floating mb-3">
           <%= f.input :remember_me, as: :boolean, input_html: { class: "text-black" } if devise_mapping.rememberable? %>
         </div>
       </div>
