@@ -70,7 +70,7 @@ class RentingRequestsController < ApplicationController
 
   def calculate_price
     @product = Product.find(params[:product_id])
-    (@renting_request.end_date - @renting_request.start_date).to_i * @product.price
+    (Date.parse(@renting_request.end_date) - Date.parse(@renting_request.start_date)).to_i * @product.price
   end
 
   # def renting_request_params
