@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :renting_requests_as_owner, through: :products, source: :renting_requests
   has_many :reviews
 
+  has_one_attached :photo
+
   # validates :name, presence: true
   # validates :address, presence: true
   # validates :password, presence: true

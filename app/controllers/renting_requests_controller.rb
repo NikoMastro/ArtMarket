@@ -27,7 +27,9 @@ class RentingRequestsController < ApplicationController
     @renting_request.user = current_user
     @renting_request.product_id = params[:product_id]
     @renting_request.status = "pending"
-
+    @dates = params[:renting_request][:start_date].split(" to ")
+    @renting_request.start_date = @dates.first
+    @renting_request.end_date = @dates.last
     @renting_request.total_price = calculate_price
     if @renting_request.save
       redirect_to renting_requests_path
@@ -68,7 +70,7 @@ class RentingRequestsController < ApplicationController
 
   def calculate_price
     @product = Product.find(params[:product_id])
-    (Date.parse(@renting_request.end_date) - Date.parse(@renting_request.start_date)).to_i * @product.price
+    (@renting_request.end_date - @renting_request.start_date).to_i * @product.price
   end
 
   # def renting_request_params

@@ -9,28 +9,25 @@
   justify-content: center;
   align-items: center;
   text-decoration: none; // Removes underline
+  background-size: cover; // Ensure the image covers the avatar completely
+  background-position: center; // Center the image within the avatar
 }
 
-// Base avatar style
+// Base avatar style with background image
 .avatar {
   @include avatar-styles(40px);
-  background-color: #f8f9fa; // Light background color
-  color: #6c757d; // Grey color for icon
+  background-color: #f8f9fa; // Light background color for fallback
+  background-image: url('pic_avatar.jpg'); // Replace with the path to your image
   transition: background-color 0.3s, color 0.3s; // Smooth transitions
 
-  // Hover effect for avatar button
-  &:hover {
-    background-color: #e9ecef; // Slightly darker background
-    color: #343a40; // Darker color for icon on hover
-  }
 
-  // Icon inside the avatar button
-  i {
-    font-size: 24px; // Adjust icon size as needed
+  // Hover effect for avatar
+  &:hover {
+    background-color: #e9ecef; // Slightly darker background on hover
   }
 }
 
-// Large avatar style
+// Large avatar style with background image
 .avatar-large {
   @include avatar-styles(56px);
 }
@@ -45,25 +42,7 @@
   @include avatar-styles(40px, 0, 0 1px 2px rgba(0, 0, 0, 0.2), white 1px solid);
 }
 
-// Dropdown menu styles
-.dropdown-menu {
-  background-color: #ffffff; // White background
-  border: 1px solid #dee2e6; // Light border color
-  border-radius: 0.375rem; // Rounded corners
-  padding: 0.5rem 0; // Vertical padding
-}
-
-// Dropdown item styles
-.dropdown-item {
-  color: #212529; // Dark text color
-  font-size: 14px; // Adjust font size as needed
-  padding: 0.5rem 1rem; // Padding around items
-  text-decoration: none; // Remove underline
-  transition: background-color 0.3s; // Smooth background transition
-
-  // Hover effect for dropdown items
-  &:hover {
-    background-color: #f8f9fa; // Light background on hover
-    color: #007bff; // Change text color on hover
-  }
+// Avatar Styles
+.avatar:hover {
+  color: #b4a8a9; // Hover color
 }
