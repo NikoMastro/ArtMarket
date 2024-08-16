@@ -5,9 +5,9 @@ class RentingRequestsController < ApplicationController
   # #see all my requests as a seller (Owner)
   #see all my requests as a client (buyer)
   def index
-    @renting_requests = current_user.renting_requests
+    @renting_requests = current_user.renting_requests.reverse
     @own_products = current_user.products
-    @renting_requests_owner = current_user.renting_requests_as_owner
+    @renting_requests_owner = current_user.renting_requests_as_owner.reverse
   end
 
   def update
@@ -70,7 +70,7 @@ class RentingRequestsController < ApplicationController
 
   def calculate_price
     @product = Product.find(params[:product_id])
-    (@renting_request.end_date - @renting_request.start_date).to_i * @product.price
+    (Date.parse(@renting_request.end_date) - Date.parse(@renting_request.start_date)).to_i * @product.price
   end
 
   # def renting_request_params

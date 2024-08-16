@@ -4,7 +4,6 @@
       action: "submit->insert-in-list#send"
     } } do |f| %>
   <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
-  <%= f.input :end_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
   <div class="text-end"> <!-- Aligns content to the right -->
     <%= f.submit 'Submit', class: "btn btn-outline-warning my-4 " %>
   </div>
