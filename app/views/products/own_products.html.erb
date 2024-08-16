@@ -1,43 +1,31 @@
-<div class="container product-container">
-  <h1>Your Items</h1>
+<div class="container product-container mt-4">
   <% @own_products.each do |product| %>
-    <div class="border-bottom border-dark-subtle py-3">
-      <div class="row">
-        <%# product card start %>
-        <div class="col-md-4 ml-12">
-          <div class="card own-product-card">
-            <div class="card-body row own-product-card-body">
-              <div class="col-md-6 ml-6 product-thumbnail">
-                <% if product.photos.attached? %>
-                  <%= cl_image_tag product.photos.first.key, crop: :fill, class: "product-thumbnail-img" %>
-                <% else %>
-                  <%= image_tag 'default_product_img.jpg', alt: "default image for product", class: "product-thumbnail-img" %>
-                <% end %>
-              </div>
-              <div class="col-md-6 ml-6">
-                <h4 class="pt-1"><%= product.title %></h4>
-                <h4 class="price">¥ <%= product.price %></h4>
-              </div>
-            </div>
-          </div>
-        </div>
-        <%# product card end %>
-        <%# requests list start %>
-        <div class="col-md-8 ml-12">
-        <% if product.renting_requests.size > 0 %>
-          <% product.renting_requests.each do |renting_request| %>
-            <div class="card">
-              <div class="card-body">
-                <%= render partial: 'renting_requests/status_bar_owner', locals: { renting_request: renting_request } %>
-                <p><%= renting_request.start_date %> - <%= renting_request.end_date %></p>
-                <h4 class="price">Total price: ¥ <%= renting_request.total_price.to_i %></h4>
-              </div>
-            </div>
+    <div class="card mb-3 own-product-card">
+      <div class="card-body own-product-card-body row">
+        <div class="col-3 product-thumbnail">
+          <% if product.photos.attached? %>
+            <%= cl_image_tag product.photos.first.key, crop: :fill, class: "product-thumbnail-img" %>
+          <% else %>
+            <%= image_tag 'default_product_img.jpg', alt: "default image for product", class: "product-thumbnail-img" %>
           <% end %>
-        <% elsif %>
-          <p>There is no request on this item.</p>
-        <% end %>
-        <%# requests list end %>
+        </div>
+        <div class="col-9">
+          <h4 class="product-title"><%= product.title %></h4>
+          <p class="product-description"><%= product.description %></p>
+          <% if product.renting_requests.any? %>
+            <div class="requests-section mt-3">
+              <h5>Pending Requests</h5>
+              <% product.renting_requests.each do |renting_request| %>
+                <div class="request-card">
+                  <%= render partial: 'renting_requests/status_bar_owner', locals: { renting_request: renting_request } %>
+                  <p><%= renting_request.start_date %> - <%= renting_request.end_date %></p>
+                  <p>Total price: ¥ <%= renting_request.total_price.to_i %></p>
+                </div>
+              <% end %>
+            </div>
+          <% else %>
+            <p>No pending requests for this item.</p>
+          <% end %>
         </div>
       </div>
     </div>
