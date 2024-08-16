@@ -21,7 +21,7 @@
                 <div>
                   <h3 class="card-product-cat"> <%= product.category %></h3>
                 </div>
-                <h3 class="card-product-pricing">DAY/¥<%= product.price %></h3>
+                <h3 class="card-product-pricing">DAY <%= number_to_currency(product.price, unit: "¥",  precision: 0) %></h3>
                 <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-product-user avatar-bordered" />
               </div>
             </div>
