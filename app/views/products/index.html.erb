@@ -12,17 +12,15 @@
             <% else %>
               <%= image_tag 'default_product_img.jpg', alt: "default image for list"%>
             <% end %>
-            <div class="card-produc">
-              <%= link_to "Show this product", product_path(product), class: "btn btn-outline-info", role: "button" %>
-              <div class="card-product-infos">
-                <div>
-                  <h3 class="card-title"><%= product.title %></h3>
-                </div>
-                <div>
-                  <h3 class="card-product-cat"> <%= product.category %></h3>
-                </div>
-                <h3 class="card-product-pricing">DAY/¥<%= product.price %></h3>
-                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-product-user avatar-bordered" />
+            <div class="col-md-4 mt-2">
+              <%= render partial: 'requests/form', locals: {product: @product, renting_request: @renting_request} %>
+              <div class="ownercard">
+                <%= image_tag product.user.photo, class: "card-product-user avatar-bordered" if product.user.photo.attached? %>
+                <ul class="list-group">
+                  <li class="list-group-item">⭐️ Verified user</li>
+                  <li class="list-group-item"><%= product.user.name %></li>
+                  <li class="list-group-item"><%= product.user.email %></li>
+                </ul>
               </div>
             </div>
           </div>
