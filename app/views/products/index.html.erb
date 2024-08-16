@@ -22,7 +22,7 @@
                   <h3 class="card-product-cat"> <%= product.category %></h3>
                 </div>
                 <h3 class="card-product-pricing">DAY/¥<%= product.price %></h3>
-                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-product-user avatar-bordered" />
+                <%= image_tag product.user.photo, class: "card-product-user avatar-bordered" if product.user.photo.attached? %>
               </div>
             </div>
           </div>
