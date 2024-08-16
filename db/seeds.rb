@@ -1,5 +1,7 @@
 require 'securerandom'
 require 'faker'
+require 'open-uri'
+require 'nokogiri'
 
 puts "destroy all database..."
 Product.destroy_all
@@ -11,17 +13,29 @@ CATEGORIES = ["Jewelries", "Watches & Bracelets", "Suits & Dresses", "Sports car
 
 puts "generating 40 User models..."
 40.times do
-  user = User.new(
+  user = User.create!(
     name: Faker::Name.name,
     address: Faker::Address.city,
     password: "123123",
     email: Faker::Internet.email
   )
-  user.save
+    # gender options: 'all' or 'male' or 'female'
+    gender = 'male'
+    # age options: 'all' or '12-18' or '19-25' or '26-35' or '35-50' or '50+'
+    age = '30-50'
+    # ethnicity options: 'all' or 'asian' or 'white' or 'black' or 'indian' or 'middle_eastern' or 'latino_hispanic'
+    ethnicity = 'all'
+
+    url = "https://this-person-does-not-exist.com/new?gender=#{gender}&age=#{age}&etnic=#{ethnicity}"
+    json = URI.open(url).string
+    src = JSON.parse(json)['src']
+    photo_url = "https://this-person-does-not-exist.com#{src}"
+    file = URI.open(photo_url)
+    user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
 end
 
 puts "generating Boats.."
-Product.create!(
+product = Product.create!(
   title: "Sunseeker 131 Yacht",
   description: "The Sunseeker 131 is a lavish superyacht
   featuring five spacious cabins, a large beach club, and an
@@ -31,7 +45,14 @@ Product.create!(
   category: "Boats",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+
+product = Product.create!(
   title: "Azimut Grande 35 Metri",
   description: "This Italian masterpiece offers elegance and luxury
   with its expansive deck spaces, a beach area, and a spacious
@@ -41,7 +62,13 @@ Product.create!(
   category: "Boats",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Pershing 140",
   description: "The Pershing 140 is an ultra-luxurious superyacht known for its speed and high-performance design.
   It features spacious decks, a stylish interior, and a state-of-the-art entertainment system.",
@@ -49,7 +76,13 @@ Product.create!(
   category: "Boats",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Benetti Diamond 145",
   description: "The Benetti Diamond 145 is a majestic superyacht with six
   luxury cabins, a stunning main deck, and an impressive range of 3,600 nautical miles.
@@ -58,7 +91,13 @@ Product.create!(
   category: "Boats",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Feadship 92m",
   description: "This Dutch-built superyacht offers unparalleled luxury,
   with features like a private helipad, infinity pool,
@@ -67,9 +106,15 @@ Product.create!(
   category: "Boats",
   user_id: User.all.sample.id
 )
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
 
 puts "generating watches.."
-Product.create!(
+product = Product.create!(
   title: "Patek Philippe Grand Complications Ref. 5270P-001",
   description: "This prestigious timepiece features a perpetual calendar,
   moon phases, and a chronograph. Crafted in platinum, it exudes sophistication and is a masterpiece of Patek Philippe's watchmaking expertise",
@@ -77,7 +122,13 @@ Product.create!(
   category: "Watches & Bracelets",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Rolex Day-Date 40 Platinum",
   description: "Known as the 'President's Watch', the Rolex Day-Date 40 is made of platinum and features a smooth bezel,
   ice-blue dial, and the iconic President bracelet. It's a symbol of success and elegance.",
@@ -85,21 +136,39 @@ Product.create!(
   category: "Watches & Bracelets",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Audemars Piguet Royal Oak Offshore Chronograph",
   description: "This bold, sporty timepiece is crafted from stainless steel and features a striking 'Méga Tapisserie' pattern on the dial. With its robust design and chronograph function, it’s both stylish and functional.",
   price: 58000,
   category: "Watches & Bracelets",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Vacheron Constantin Patrimony Perpetual Calendar Ultra-Thin",
   description: "This ultra-thin watch is a marvel of fine watchmaking, featuring a perpetual calendar and moon phase display. Its elegant design is housed in an 18k pink gold case, making it a timeless classic.",
   price: 58000,
   category: "Watches & Bracelets",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Richard Mille RM 11-03 Automatic Flyback Chronograph",
   description: "A modern marvel, this Richard Mille watch combines
   cutting-edge technology with luxury. Its skeletonized dial and flyback chronograph function are
@@ -108,7 +177,13 @@ Product.create!(
   category: "Watches & Bracelets",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Jaeger-LeCoultre Reverso Tribute Duoface",
   description: "The Reverso is an iconic watch with a unique flip-over case,
   offering two dials for dual time zones. The Tribute Duoface version features a
@@ -117,7 +192,13 @@ Product.create!(
   category: "Watches & Bracelets",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Cartier Juste un Clou Bracelet",
   description: "The Juste un Clou bracelet is a bold piece by Cartier,
   designed to resemble a bent nail. Crafted in 18k yellow gold, it’s a statement of modern luxury.",
@@ -125,7 +206,13 @@ Product.create!(
   category: "Watches & Bracelets",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Tiffany & Co. Diamond Tennis Bracelet",
   description: "This exquisite tennis bracelet from Tiffany & Co. features a
   continuous line of round brilliant diamonds set in platinum, perfect for adding sparkle to any outfit.",
@@ -133,7 +220,13 @@ Product.create!(
   category: "Watches & Bracelets",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Bvlgari B.Zero1 Bracelet",
   description: "The B.Zero1 bracelet by Bvlgari is inspired
   by the Roman Colosseum, crafted in 18k rose gold. Its spiral design is modern and chic.",
@@ -141,7 +234,13 @@ Product.create!(
   category: "Watches & Bracelets",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Van Cleef & Arpels Perlée Bracelet",
   description: "The Perlée bracelet is a delicate piece
   adorned with beads of 18k yellow gold, embodying the playful and elegant spirit of Van Cleef & Arpels.",
@@ -149,7 +248,13 @@ Product.create!(
   category: "Watches & Bracelets",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Chopard Ice Cube Bracelet",
   description: "The Ice Cube bracelet by Chopard is a
   contemporary piece featuring geometric cubes in 18k white gold, set with diamonds. It’s both stylish and unique.",
@@ -157,10 +262,15 @@ Product.create!(
   category: "Watches & Bracelets",
   user_id: User.all.sample.id
 )
-
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
 
 puts "generating Cars.."
-Product.create!(
+product = Product.create!(
   title: "Ferrari SF90 Stradale",
   description: "The SF90 Stradale is Ferrari's most powerful road car,
   boasting a hybrid powertrain that delivers a combined 1,000 horsepower.
@@ -169,7 +279,13 @@ Product.create!(
   category: "Sports car & Vintage",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "McLaren 720S",
   description: "The McLaren 720S is a lightweight supercar
   with a 4.0L twin-turbo V8 engine delivering 720 horsepower.
@@ -179,7 +295,13 @@ Product.create!(
   category: "Sports car & Vintage",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Aston Martin DBS Superleggera",
   description: "The DBS Superleggera is Aston Martin’s flagship grand tourer,
   featuring a 5.2L twin-turbo V12 engine with 715 horsepower. It combines luxury with raw power, making it ideal for long-distance driving.",
@@ -187,17 +309,30 @@ Product.create!(
   category: "Sports car & Vintage",
   user_id: User.all.sample.id
 )
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
 
 puts "generating Jewels.."
-Product.create!(
-  title: "Cartier Love Necklacet",
+product = Product.create!(
+  title: "Cartier Love Necklace",
   description: "The Cartier Love Necklace is an iconic piece, crafted in 18k rose gold with the signature screw motif.
   It’s a symbol of eternal love and elegance",
   price: 100000,
   category: "Jewelries",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+
+product = Product.create!(
   title: "Tiffany & Co. Victoria Diamond Vine Necklace",
   description: "This stunning necklace features a vine design with marquise and round
   diamonds set in platinum. It’s perfect for special occasions,
@@ -206,7 +341,13 @@ Product.create!(
   category: "Jewelries",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Bvlgari Serpenti Necklace",
   description: "The Bvlgari Serpenti Necklace is a mesmerizing piece that coils around
   the neck like a serpent, crafted in 18k white gold and adorned with pave diamonds.",
@@ -214,7 +355,13 @@ Product.create!(
   category: "Jewelries",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Van Cleef & Arpels Alhambra Necklace",
   description: "This iconic necklace features the Alhambra clover motif in
   mother-of-pearl and 18k yellow gold. It’s a symbol of luck and refined taste.",
@@ -222,7 +369,13 @@ Product.create!(
   category: "Jewelries",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Chopard Happy Diamonds Necklace",
   description: "The Happy Diamonds Necklace by Chopard
    features floating diamonds encased in a heart-shaped 18k white gold pendant. It’s playful and luxurious.",
@@ -230,10 +383,15 @@ Product.create!(
   category: "Jewelries",
   user_id: User.all.sample.id
 )
-
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
 
 puts "generating Suits and Dresses.."
-Product.create!(
+product = Product.create!(
   title: "Tom Ford O’Connor Wool Suit",
   description: "The O’Connor suit by Tom Ford is a tailored masterpiece,
   crafted from fine wool. Its slim fit and sharp lines make it perfect for
@@ -242,7 +400,13 @@ Product.create!(
   category: "Suits & Dresses",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Brioni Bespoke Suit",
   description: "This bespoke suit from Brioni is handcrafted in Italy,
    offering unparalleled luxury and a perfect fit. Ideal for
@@ -251,7 +415,13 @@ Product.create!(
   category: "Suits & Dresses",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Giorgio Armani Classic Tuxedo",
   description: "A timeless black tuxedo by Giorgio Armani, featuring satin lapels and a slim silhouette.
   Perfect for black-tie weddings and gala events.",
@@ -259,7 +429,13 @@ Product.create!(
   category: "Suits & Dresses",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Zegna Trofeo Wool Suit",
   description: "The Trofeo suit from Zegna is made from high-quality wool, offering comfort and elegance.
    It’s a versatile option for both meetings and formal events.",
@@ -267,7 +443,13 @@ Product.create!(
   category: "Suits & Dresses",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Canali Impeccabile Suit",
   description: "The Canali Impeccabile suit is crafted from innovative wool fabric that
   resists wrinkles. Its classic design is suitable for business meetings and events.",
@@ -275,7 +457,13 @@ Product.create!(
   category: "Suits & Dresses",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Hugo Boss Signature Suit",
   description: "This Hugo Boss suit is a refined option with a modern fit, perfect for professional settings.
   Its sleek design makes it a go-to for important meetings.",
@@ -283,7 +471,13 @@ Product.create!(
   category: "Suits & Dresses",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Ralph Lauren Purple Label Tuxedo",
   description: "A luxurious tuxedo from Ralph
   Lauren's Purple Label, featuring peak lapels and a rich velvet jacket.
@@ -292,7 +486,13 @@ Product.create!(
   category: "Suits & Dresses",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Kiton K-50 Bespoke Suit",
   description: "The Kiton K-50 is a bespoke suit, handcrafted from the finest fabrics.
    With only 50 made each year, it’s a symbol of ultimate luxury for special occasions.",
@@ -300,75 +500,80 @@ Product.create!(
   category: "Suits & Dresses",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Elie Saab Couture Gown",
   description: "This Elie Saab gown is a masterpiece of couture, featuring intricate beadwork and flowing chiffon. Perfect for a bride or a guest at an opulent wedding.",
   price: 400000,
   category: "Suits & Dresses",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Oscar de la Renta Silk Gown",
   description: "A stunning silk gown from Oscar de la Renta, featuring a fitted bodice and a full skirt. Ideal for weddings and formal events.",
   price: 90000,
   category: "Suits & Dresses",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Dior Haute Couture Dress",
   description: " This Dior dress is a piece of haute couture, with exquisite craftsmanship and luxurious fabrics. Perfect for the most exclusive events.",
   price: 500000,
   category: "Suits & Dresses",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Valentino Red Evening Gown",
   description: "A bold red gown from Valentino, featuring a classic silhouette and luxurious silk fabric. Ideal for making a statement at weddings or galas.",
   price: 80000,
   category: "Suits & Dresses",
   user_id: User.all.sample.id
 )
-Product.create!(
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
+product = Product.create!(
   title: "Chanel Little Black Dress",
   description: "The iconic little black dress by Chanel is a timeless piece, perfect for business events and cocktail parties. Its classic design ensures elegance.",
   price: 60000,
   category: "Suits & Dresses",
   user_id: User.all.sample.id
 )
-# puts "generating 10 Product models..."
-# 10.times do
-#   product = Product.new(
-#     title: Faker::Movie.title,
-#     description: Faker::Lorem.paragraph,
-#     price: rand(100000..10000000),
-#     category: CATEGORIES.sample
-#   )
-#   users = User.all
-#   product.user_id = users.sample.id
-#   product.save
-# end
+4.times do |index|
+  product.photos.attach(
+        io:  File.open(File.join(Rails.root,"app/assets/images/#{product.title}/File #{index}.jpg")),
+        filename: 'photo.jpg'
+  )
+end
 
-
-# puts "generating 10 Renting_request models..."
-# STATUS = ["pending", "rejected", "accepted"]
-# renting_duration = rand(10)
-# 10.times do
-#   start_date = Date.today
-#   renting_request = RentingRequest.new(
-#     start_date: "#{start_date}",
-#     end_date: "#{start_date + renting_duration}",
-#     status: STATUS.sample
-#   )
-#   user = User.all.sample
-#   product = Product.all.sample
-#   renting_request.user_id = user.id
-#   renting_request.product_id = product.id
-#   renting_request.total_price = product.price * renting_duration
-#   renting_request.save
-# end
-
-puts "generating 16 Review models..."
-16.times do
+puts "generating 60 Reviews models..."
+60.times do
   review = Review.new(
     content: ["The attention to detail is unparalleled. This feels luxurious, and the product is impeccable. I received numerous compliments at the event, and it fit like a glove.",
     "made me feel like a princess. This is exquisite, and the fabric flows beautifully. Perfect for a wedding or any special occasion.",
